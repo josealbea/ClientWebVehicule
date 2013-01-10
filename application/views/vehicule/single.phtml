@@ -1,0 +1,60 @@
+<?php foreach ($vehicule as $unVehicule) {?>
+<div id="gauche_fiche">
+	<h2><?= $unVehicule->getAttribute("titre"); ?></h2>
+	<div id="infos-annonce">
+		Mis en ligne le <?php echo date("j/m/Y", strtotime($unVehicule->getAttribute("date_ajout"))); ?> par <a href="#"><?= $unVehicule->firstChild->getAttribute("pseudo"); ?></a>
+		<div id="photo-fiche"><img src="http://193.164.197.50/images/965/965222114607667.jpg" alt=""></div>
+	</div>
+</div>
+<div id="droite_fiche">
+	<span id="price_title">Prix : </span>
+	<span id="price_big"><?= $unVehicule->getAttribute("prix"); ?> €</span>
+	<table id="detail">
+		<tr>
+			<td>Ville</td>
+			<td><?= $unVehicule->firstChild->getAttribute("ville"); ?></td>
+		</tr>
+		<tr>
+			<td>Code postal</td>
+			<td><?= $unVehicule->firstChild->getAttribute("code_postal"); ?></td>
+		</tr>
+		<tr>
+			<td>Kilomètres</td>
+			<td><?= $unVehicule->getAttribute("km"); ?></td>
+		</tr>
+		<tr>
+			<td>Année</td>
+			<td><?= $unVehicule->getAttribute("annee"); ?></td>
+		</tr>
+		<tr>
+			<td>Carburant</td>
+			<td><?= $unVehicule->getAttribute("energie"); ?></td>
+		</tr>
+		<tr>
+			<td>Nombre de portes</td>
+			<td><?= $unVehicule->getAttribute("nb_places"); ?></td>
+		</tr>
+		<tr>
+			<td>Boite de vitesse</td>
+			<td><?= $unVehicule->getAttribute("boite_vitesse"); ?></td>
+		</tr>
+	</table>
+	<div id="fiche_contact">
+		<div id="header_contact">
+			<?= $unVehicule->firstChild->getAttribute("prenom"); ?> <?= $unVehicule->firstChild->getAttribute("nom"); ?>
+		</div>
+		<div class="ligne_contact">
+			<img src="img/icons/user.png" width="20" /> <a href="">Contacter-le</a>
+		</div>
+		<div class="ligne_contact">
+			<img src="img/icons/mail.png" width="20" /> <?= $unVehicule->firstChild->getAttribute("adresse_mail"); ?>
+		</div>
+		<div class="ligne_contact">
+			<img src="img/icons/phone.png" width="20" /> <?= $unVehicule->firstChild->getAttribute("telephone"); ?>
+		</div>
+	</div>
+</div>	
+<div class="clear"></div>
+<h1>Description de l'annonce</h1>
+<p><?= $unVehicule->getAttribute("description"); ?></p>
+<?php } ?>

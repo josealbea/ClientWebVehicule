@@ -1,8 +1,8 @@
 <?php 
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
-define("SITE_ROOT", "http://localhost/vehicule/");
+define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
-define("PUBLIC_ROOT", "http://localhost/vehicule/public/");
+define("PUBLIC_ROOT", "http://localhost/ClientWebVehicule/public/");
 
 // PDO Connect
 //require APPLICATION_PATH.'configs/connect.php';
@@ -13,7 +13,7 @@ require APPLICATION_PATH.'configs/auth.php';
 // Dispatcher
 require_once APPLICATION_PATH.'dispatcher.php';
 
-$controller = isset($_GET['controller'])?$_GET['controller']:'accueil';
+$controller = isset($_GET['controller'])?$_GET['controller']:'vehicule';
 $action = isset($_GET['action'])?$_GET['action']:'index';
 
 include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
@@ -26,9 +26,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     <title>Achetersonvehicule.com</title>
     <link rel="stylesheet" href="<?= PUBLIC_ROOT; ?>css/style.css" />
     <link rel="stylesheet" href="<?= PUBLIC_ROOT; ?>bootstrap/css/bootstrap.css">
-	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>bootstrap/js/bootstrap.js"></script>
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>bootstrap/js/bootstrap.js"></script>
     <script>
     $(function() {
         $( "#slider-range" ).slider({
@@ -54,7 +54,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			</div>
 			<div id="menu-user">
 			    <div class="btn-group">
-			    <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
+			    <a href="#signup" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
 				    <ul class="dropdown-menu">
@@ -69,7 +69,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<li><a href=""><img src="<?= PUBLIC_ROOT ?>img/icons/car.png" /> Voitures</a></li>
 				<li><a href=""><img src="<?= PUBLIC_ROOT ?>img/icons/scooter.png" /> Scooters</a></li>
 				<li><a href=""><img src="<?= PUBLIC_ROOT ?>img/icons/moto.png" /> Motos</a></li>
-				<li><a href=""><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
+				<li><a href="<?= SITE_ROOT; ?>contact.php"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
 			</ul>
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
@@ -127,6 +127,19 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	</div>
 <div id="footer">
 	Copyright 2012 - Projet réalisé par Lucas Buisine, Yohann Teisseire et José Albea.
+</div>
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel">Connexion - <?= SITE_NAME; ?></h3>
+	</div>
+	<div class="modal-body">
+		<p>One fine body…</p>
+	</div>
+	<div class="modal-footer">
+		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
+		<button class="btn btn-primary">Save changes</button>
+	</div>
 </div>
 </body>
 </html>
