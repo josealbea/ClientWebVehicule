@@ -1,0 +1,134 @@
+<h1>Formulaire d'inscription</h1>
+<div id="erreurmail"></div>
+<div id="signup_form">
+	<form action="">
+		<label for="mail">Votre adresse mail</label>
+		<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+		<label for="mail2">Retapez</label>
+		<input type="text" id="mail2" name="mail2" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+		<label for="pseudo">Votre pseudo</label>
+		<input type="text" name="pseudo" id="pseudo" placeholder="Ex : JDupont"/>
+		<label for="password">Mot de passe</label>
+		<input type="password" name="password" id="password"/>
+		<label for="password2">Retapez</label>
+		<input type="password" name="password2" id="password2"/>
+
+</div>
+<div id="signup_form">
+	<label for="nom">Votre nom</label>
+	<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
+	<label for="prenom">Votre prénom</label>
+	<input type="text" name="prenom" id="prenom" placeholder="Ex : Jean"/>
+	<label for="ville">Votre ville</label>
+	<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
+	<label for="cp">Votre code postal</label>
+	<input type="text" name="cp" id="cp" placeholder="Ex : 75016"/>
+	<label for="tel">Votre téléphone</label>
+	<input type="text" name="tel" id="tel" placeholder="Ex : 061122334455"/>
+	<input type="submit" value="S'inscrire">
+	</form>
+</div>
+<script type="text/javascript">
+function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.borderColor = "#df8f90";
+   else
+      champ.style.borderColor = "";
+}
+$(function(){ 
+
+	$('#mail')
+		.bind('blur',function(event) {
+		verifMail(mail);
+	});
+	$('#mail2')
+		.bind('blur',function(event) {
+		verifMail2(mail2);
+	});
+});
+
+function verifMail(champ)
+{
+   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+   if(champ.value.length < 1)
+   {
+      surligne(champ, true);
+	  document.getElementById("erreurmail").innerHTML="<div class='error'>Le mail est obligatoire</div>";
+	  return false;
+   }
+   else if(!regMailExpression.test(champ.value)) {
+   	  surligne(champ,true);
+   	  document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
+   	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmail").innerHTML="";
+      return true;
+   }
+}
+
+function verifMail2(champ)
+{
+	var mail = document.getElementById("mail").value;
+   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+   if(champ.value.length < 1)
+   {
+      surligne(champ, true);
+	  document.getElementById("erreurmail").innerHTML="<div class='error'>Le mail est obligatoire</div>";
+	  return false;
+   }
+   else if(!regMailExpression.test(champ.value)) {
+   	  surligne(champ,true);
+   	  document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
+   	  return false;
+   }
+   else if (champ.value != mail) 
+   {
+   	surligne(champ, true);
+      document.getElementById("erreurmail").innerHTML="<div class='error'>Les adresses mail ne concordent pas</div>";
+      return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmail").innerHTML="";
+      return true;
+   }
+}
+
+
+function verifMails(champ1, champ2)
+{
+
+	if (champ1 != champ2) {
+		surligne(champ2, true);
+		document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
+   	 	return false;
+	}
+	else {
+		surligne(champ2,false);
+		document.getElementById("erreurmail").innerHTML="";
+   	 	return true;
+	}
+}
+
+function verifSubmit(f) 
+{
+   var nomCampOk = verifNomCamp(f.nom_camp);
+   var numOk = verifNum(f.destinataire);
+   var msgOk = verifMessage(f.message);
+   
+   if(nomCampOk && numOk && msgOk)
+      return true;
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+}
+</script>
