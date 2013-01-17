@@ -1,0 +1,43 @@
+<div id="gauche">
+	<h1>Les dernières motos postées</h1>
+	<?php foreach($moto as $motos) {
+	?>
+	<div class="annonce">
+		<div class="photo-annonce">
+			<img src="http://193.164.197.30/images/715/715227101405852.jpg" alt="">
+		</div>
+		<div class="description-annonce">
+			<h2><a href="vehicule/<?= $motos->getAttribute("id")."-".strtolower(str_replace(" ", "-", $motos->getAttribute("titre"))); ?>"><?= $motos->getAttribute("titre"); ?></a></h2>
+			<p><?= $motos->getAttribute("description"); ?></p>
+			<div class="detail-annonce">
+				<p><?= $motos->firstChild->getAttribute("ville"); ?> (<?= substr($motos->firstChild->getAttribute("code_postal"),0,2); ?>) - <?= $motos->getAttribute("annee"); ?> - <?= $motos->getAttribute("energie"); ?> - <?= $motos->getAttribute("km"); ?>Km</p>
+				<div class="liste-prix">
+					Prix : <span><?= $motos->getAttribute("prix"); ?> €</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<?php } ?>
+</div>
+<div id="droite">
+	<h1>Les plus vus</h1>
+	<div class="annonce">
+		<div class="photo-annonce">
+			<img src="http://193.164.197.30/images/715/715227101405852.jpg" alt="">
+		</div>
+		<div class="description-annonce">
+			<h3>MERCEDES - CLASSE C 220 CDI - Avangarde</h3>
+			<div class="detail-annonce">
+				<div class="liste-prix">
+					Prix : <span>17500 €</span>
+				</div>
+			</div>
+		</div>
+	</div>
+	<h1>Une question ?</h1>
+	<div id="support">
+		<h2>Nos conseillers sont à votre disposition :</h2>
+		<div id="tel-support">01 43 43 50 30</div>
+		de 9h à 18h
+	</div>
+</div>
