@@ -2,12 +2,17 @@
 
 loadXMLFile("http://achetervehicule.com/webservice/?controller=vehicule&action=index");
 
-function loadXMLFile($url, $page) {
-  global $vehicules;
-    $_GET['page'] = 2;
-  $dom = new DOMDocument();
-  $dom->preserveWhiteSpace = false;
-  $dom->Load($url);
-  $vehicules=$dom->getElementsByTagName("vehicule");
-  return $vehicules;
+function loadXMLFile($url, $page) 
+{
+	global $vehicules;
+	$ch = curl_init();
+	curl_setopt($ch, CURLOPT_URL, $url);
+	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+	$result = utf8_decode(curl_exec($ch));
+	curl_close($ch);
+	$annonces = new DOMDocument();
+	$annonces->loadHTML($result);
+	$vehicules=$annonces->getElementsByTagName("vehicule");
+
+	return $vehicules;
 }

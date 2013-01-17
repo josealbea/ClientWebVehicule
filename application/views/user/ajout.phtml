@@ -1,7 +1,13 @@
 <h1>Formulaire d'inscription</h1>
 <div id="erreurmail"></div>
+<div id="erreurpassword"></div>
+<div id="erreurnom"></div>
+<div id="erreurprenom"></div>
+<div id="erreurville"></div>
+<div id="erreurcp"></div>
+<div id="erreurtel"></div>
 <div id="signup_form">
-	<form action="">
+	<form action="" method="post" name="form1" id="form1" class="form1">
 		<label for="mail">Votre adresse mail</label>
 		<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
 		<label for="mail2">Retapez</label>
@@ -37,15 +43,46 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-
+   $('form')
+      .bind('submit',function(event) {
+      return verifSubmit(form1);
+   });
 	$('#mail')
-		.bind('blur',function(event) {
-		verifMail(mail);
-	});
+      .bind('blur',function(event) {
+      verifMail(mail);
+   });
 	$('#mail2')
-		.bind('blur',function(event) {
-		verifMail2(mail2);
-	});
+      .bind('blur',function(event) {
+      verifMail2(mail2);
+   });
+   $('#password')
+      .bind('blur',function(event) {
+      verifPasswordEmpty();
+   });
+   $('#password2')
+      .bind('blur',function(event) {
+      verifPassword();
+   });
+   $('#nom')
+      .bind('blur',function(event) {
+      verifNomEmpty();
+   });
+   $('#prenom')
+      .bind('blur',function(event) {
+      verifPrenomEmpty();
+   });
+   $('#ville')
+      .bind('blur',function(event) {
+      verifVilleEmpty();
+   });
+   $('#cp')
+      .bind('blur',function(event) {
+      verifCodePostalEmpty();
+   });
+   $('#tel')
+      .bind('blur',function(event) {
+      verifTelephoneEmpty();
+   });
 });
 
 function verifMail(champ)
@@ -55,12 +92,12 @@ function verifMail(champ)
    if(champ.value.length < 1)
    {
       surligne(champ, true);
-	  document.getElementById("erreurmail").innerHTML="<div class='error'>Le mail est obligatoire</div>";
+	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
 	  return false;
    }
    else if(!regMailExpression.test(champ.value)) {
    	  surligne(champ,true);
-   	  document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
+   	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
    	  return false;
    }
    else
@@ -73,24 +110,24 @@ function verifMail(champ)
 
 function verifMail2(champ)
 {
-	var mail = document.getElementById("mail").value;
+   var mail = document.getElementById("mail").value;
    var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
    if(champ.value.length < 1)
    {
       surligne(champ, true);
-	  document.getElementById("erreurmail").innerHTML="<div class='error'>Le mail est obligatoire</div>";
-	  return false;
+     document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+     return false;
    }
    else if(!regMailExpression.test(champ.value)) {
-   	  surligne(champ,true);
-   	  document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
-   	  return false;
+        surligne(champ,true);
+        document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
+        return false;
    }
    else if (champ.value != mail) 
    {
-   	surligne(champ, true);
-      document.getElementById("erreurmail").innerHTML="<div class='error'>Les adresses mail ne concordent pas</div>";
+      surligne(champ, true);
+      document.getElementById("erreurmail").innerHTML="<div class='notif error'>Les adresses mail ne concordent pas</div>";
       return false;
    }
    else
@@ -101,13 +138,154 @@ function verifMail2(champ)
    }
 }
 
+function verifPassword()
+{
+   var password = document.getElementById("password");
+   var password2 = document.getElementById("password2");
+
+   if(password.value.length < 1)
+   {
+     surligne(champ, true);
+     document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
+     return false;
+   }
+   if (password.value != password2.value) 
+   {
+      surligne(password, true);
+      surligne(password2, true);
+      document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Les mots de passe ne concordent pas</div>";
+      return false;
+   }
+   else if (password.value.length < 4 || password.value.length > 12) 
+   {
+      surligne(password, true);
+      document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe doit contenir entre 4 et 12 caractères.</div>";
+      return false;
+   }
+   else
+   {
+      surligne(password, false);
+      surligne(password2, false);
+      document.getElementById("erreurpassword").innerHTML="";
+      return true;
+   }
+}
+
+function verifPasswordEmpty()
+{
+   var password = document.getElementById("password");
+
+   if(password.value.length < 1)
+   {
+     surligne(password, true);
+     document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(password, false);
+      document.getElementById("erreurpassword").innerHTML="";
+      return true;
+   }
+}
+
+function verifNomEmpty()
+{
+   var nom = document.getElementById("nom");
+
+   if(nom.value.length < 1)
+   {
+     surligne(nom, true);
+     document.getElementById("erreurnom").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(nom, false);
+      document.getElementById("erreurnom").innerHTML="";
+      return true;
+   }
+}
+
+function verifPrenomEmpty()
+{
+   var prenom = document.getElementById("prenom");
+
+   if(prenom.value.length < 1)
+   {
+     surligne(prenom, true);
+     document.getElementById("erreurprenom").innerHTML="<div class='notif error'>Le prénom est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(prenom, false);
+      document.getElementById("erreurprenom").innerHTML="";
+      return true;
+   }
+}
+
+function verifVilleEmpty()
+{
+   var ville = document.getElementById("ville");
+
+   if(ville.value.length < 1)
+   {
+     surligne(ville, true);
+     document.getElementById("erreurville").innerHTML="<div class='notif error'>La ville est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(ville, false);
+      document.getElementById("erreurville").innerHTML="";
+      return true;
+   }
+}
+
+function verifCodePostalEmpty()
+{
+   var cp = document.getElementById("cp");
+
+   if(cp.value.length < 1)
+   {
+     surligne(cp, true);
+     document.getElementById("erreurcp").innerHTML="<div class='notif error'>Le code postal est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(cp, false);
+      document.getElementById("erreurcp").innerHTML="";
+      return true;
+   }
+}
+
+function verifTelephoneEmpty()
+{
+   var tel = document.getElementById("tel");
+
+   if(tel.value.length < 1)
+   {
+     surligne(tel, true);
+     document.getElementById("erreurtel").innerHTML="<div class='notif error'>Le téléphone est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(tel, false);
+      document.getElementById("erreurtel").innerHTML="";
+      return true;
+   }
+}
+
 
 function verifMails(champ1, champ2)
 {
 
 	if (champ1 != champ2) {
 		surligne(champ2, true);
-		document.getElementById("erreurmail").innerHTML="<div class='error'>L'adresse mail est invalide</div>";
+		document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
    	 	return false;
 	}
 	else {
@@ -119,11 +297,15 @@ function verifMails(champ1, champ2)
 
 function verifSubmit(f) 
 {
-   var nomCampOk = verifNomCamp(f.nom_camp);
-   var numOk = verifNum(f.destinataire);
-   var msgOk = verifMessage(f.message);
+   var mailOk = verifMails(f.password, f.password2);
+   var mdpOk = verifPassword();
+   var nomOk = verifNomEmpty();
+   var prenomOk = verifPrenomEmpty();
+   var villeOk = verifVilleEmpty();
+   var cpOk = verifCodePostalEmpty();
+   var telOk = verifTelephoneEmpty();
    
-   if(nomCampOk && numOk && msgOk)
+   if(mailOk && mdpOk && nomOk && prenomOk && villeOk && cpOk && telOk)
       return true;
    else
    {

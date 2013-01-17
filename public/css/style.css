@@ -982,3 +982,36 @@ input[type=submit] {
 	width: 50%;
 	overflow:hidden;
 }
+
+/***************** MESSAGE BOX *******************/
+
+.notif {
+	background-color: #EEDC94;
+    background-image: -moz-linear-gradient(center top , #FCEEC1, #EEDC94);
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    border-radius: 4px 4px 4px 4px;
+    border-style: solid;
+    border-width: 1px;
+    box-shadow: 0 1px 0 rgba(255, 255, 255, 0.25) inset;
+    color: #404040;
+    margin-bottom: 18px;
+    padding: 15px;
+    position: relative;
+    text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+}
+
+.error {
+	background: #ee5f5b; /* Old browsers */
+	background: -moz-linear-gradient(top,  #ee5f5b 0%, #c43c35 100%); /* FF3.6+ */
+	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ee5f5b), color-stop(100%,#c43c35)); /* Chrome,Safari4+ */
+	background: -webkit-linear-gradient(top,  #ee5f5b 0%,#c43c35 100%); /* Chrome10+,Safari5.1+ */
+	background: -o-linear-gradient(top,  #ee5f5b 0%,#c43c35 100%); /* Opera 11.10+ */
+	background: -ms-linear-gradient(top,  #ee5f5b 0%,#c43c35 100%); /* IE10+ */
+	background: linear-gradient(to bottom,  #ee5f5b 0%,#c43c35 100%); /* W3C */
+	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ee5f5b', endColorstr='#c43c35',GradientType=0 ); /* IE6-9 */
+    background-repeat: repeat-x;
+    border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
+    color: #FFFFFF !important;
+    text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}

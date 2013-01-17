@@ -1,11 +1,11 @@
 <?php 
 
-function ajoutvehicule() {
-	$service_url = "http://achetervehicule.com/webservice/?controller=vehicule&action=index";
+function ajoutMembre() {
+	$service_url = "http://achetervehicule.com/webservice/?controller=user&action=index";
 	$curl = curl_init($service_url);
 	$curl_post_data = array(
-	    "user_id" => 42,
-	    "emailaddress" => 'lorna@example.com',
+	    "id" => 42,
+	    "email" => 'lorna@example.com',
 	    );
 	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
 	curl_setopt($curl, CURLOPT_POST, true);
