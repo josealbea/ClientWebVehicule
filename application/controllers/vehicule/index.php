@@ -1,8 +1,8 @@
 <?php
 
-loadXMLFile("http://achetervehicule.com/webservice/?controller=vehicule&action=index");
+loadXMLFile("http://achetervehicule.com/webservice/?controller=vehicule&action=index",1);
 
-function loadXMLFile($url, $page) 
+function loadXMLFile($url) 
 {
 	global $vehicules;
 	$ch = curl_init();

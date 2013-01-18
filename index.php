@@ -134,11 +134,14 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<h3 id="myModalLabel">Connexion - <?= SITE_NAME; ?></h3>
 	</div>
 	<div class="modal-body">
-		<p>One fine body…</p>
+		<form action="" method="post">
+			<input type="text" name="email" placeholder="Votre email" required>
+			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
+		</form>
 	</div>
 	<div class="modal-footer">
-		<button class="btn" data-dismiss="modal" aria-hidden="true">Close</button>
-		<button class="btn btn-primary">Save changes</button>
+		<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
+		<button type="submit" class="btn btn-primary">Connexion</button>
 	</div>
 </div>
 </body>
