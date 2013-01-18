@@ -159,7 +159,7 @@ a#search_button, a:visited#search_button, a:link#search_button{
 	background: #EDEDED;
 	width: 78%;
 	max-width: 1065px;
-	padding: 2% 1%;
+	padding: 2% 1% 0;
 	z-index:1;
 	border-left: 1px solid grey;
 	border-right: 1px solid grey;
@@ -895,7 +895,6 @@ label {
 	width: 30%;
 	text-align:left;
 	float: left;
-	clear:both;
 	font-size: 13px;
 	line-height: 30px;
 }

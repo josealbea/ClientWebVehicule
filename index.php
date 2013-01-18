@@ -28,7 +28,19 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     <link rel="stylesheet" href="<?= PUBLIC_ROOT; ?>bootstrap/css/bootstrap.css">
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
+    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
 	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/main.js"></script>
+	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/jquery.ui.addresspicker.js"></script>
+    <script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/jquery.radioSwitch.js"></script>
+
+	<script type="text/javascript" charset="utf-8">
+		$(document).ready(function() {
+		    $(".choix_vehicule").radioSwitch({speed:200, width: 80});
+		    $(".choix_boite").radioSwitch({speed:200, width: 110});
+		    $(".choix_energie").radioSwitch({speed:200, width: 60});
+		});
+	</script>
     <script>
     $(function() {
         $( "#slider-range" ).slider({
@@ -38,10 +50,10 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
             step: 500,
             values: [ 0, 100000 ],
             slide: function( event, ui ) {
-                $( "#amount" ).val( ui.values[ 0 ] + "€ - " + ui.values[ 1 ] + "€" );
+                $( "#amount" ).html( ui.values[ 0 ] + "€ - " + ui.values[ 1 ] + "€" );
             }
         });
-        $( "#amount" ).val($( "#slider-range" ).slider( "values", 0 ) +
+        $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
             "€ - " + $( "#slider-range" ).slider( "values", 1 ) + "€" );
     });
     </script>
@@ -78,44 +90,54 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			<table>
 				<tr>
 					<td>Votre recherche : </td>
-					<td><label for="amount">Votre budget : </label><input type="text" id="amount" style="border: 0; background: none; color: #f6931f; font-weight: bold; width: 130px;" /></td>
-					<td>Type de véhicule : </td>
+					<td><label for="amount" style="width:100%;">Votre budget : <span id="amount"></span></label></td>
+					<td>Année : </td>
 					<td>Votre département : </td>
 				</tr>
 				<tr>
 					<td><input type="text" name="recherche" placeholder="Ex : Ferarri" /></td>
 					<td><div id="slider-range"></div></td>
 					<td>
-						<select name="type" />
-							<option value="voiture">Voiture</option>
-							<option value="moto">Moto</option>
-							<option value="scooter">Scooter</option>
-						</select>
-					</td>
-					<td><input type="text" name="departement" maxlength="5" placeholder="Ex : 75016" /></td>
+		    			<input type="text" name="annee" placeholder="Ex : 2010" maxlength="4"/>
+		    		</td>
+					<td><input type="text" name="departement" id="dep" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
-					<td>Année :</td>
+					<td>Type de véhicule :</td>
 					<td>Boite de vitesse :</td>
 					<td>Energie :</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="annee" placeholder="Ex : 2010" maxlength="4"/></td>
 					<td>
-						<select name="boite" />
-							<option value="" selected disabled>Boite de vitesse</option>
-							<option value="automatique">Automatique</option>
-							<option value="manuelle">Manuelle</option>
-						</select>
+						<div class="choix_vehicule">
+		        			<input type="radio" name="type" value="1" id="type1" class="radioSlider" style="">
+	        			    <label for="type1">Voiture</label>
+	        			    <input type="radio" name="type" value="2" id="type2" class="radioSlider" style="">
+	        			    <label for="type2">Moto</label>
+	        			    <input type="radio" name="type" value="3" id="type3" class="radioSlider" style="">
+	        			    <label for="type3">Scooter</label>
+		    		    </div>
 					</td>
 					<td>
-						<select name="Energie" />
-							<option value="" selected disabled>Type d'énergie</option>
-							<option value="essence">Essence</option>
-							<option value="diesel">Diesel</option>
-							<option value="gpl">GPL</option>
-							<option value="electrique">Electrique</option>
-						</select>
+						<div class="choix_boite">
+		        			<input type="radio" name="boite" value="1" id="boite1" class="radioSlider" style="">
+	        			    <label for="boite1">Manuelle</label>
+	        			    <input type="radio" name="boite" value="2" id="boite2" class="radioSlider" style="">
+	        			    <label for="boite2">Automatique</label>
+		    		    </div>
+		    		</td>
+					</td>
+					<td>
+						<div class="choix_energie">
+		        			<input type="radio" name="energie" value="1" id="energie1" class="radioSlider" style="">
+	        			    <label for="energie1">Diesel</label>
+	        			    <input type="radio" name="type" value="2" id="energie2" class="radioSlider" style="">
+	        			    <label for="energie2">Essence</label>
+	        			    <input type="radio" name="type" value="3" id="energie3" class="radioSlider" style="">
+	        			    <label for="energie3">GPL</label>
+	        			    <input type="radio" name="type" value="3" id="energie4" class="radioSlider" style="">
+	        			    <label for="energie4">Electrique</label>
+		    		    </div>
 					</td>
 				</tr>
 			</table>
