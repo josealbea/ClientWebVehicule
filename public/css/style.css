@@ -758,6 +758,9 @@ body .ui-tooltip { border-width: 2px; }
 	border-bottom: 1px solid #EBEBEB;
 	position:relative;
 }
+.annonce:hover{
+	background: none repeat scroll 0 0 #ECECEC;
+}
 
 .photo-annonce {
 	float:left;
