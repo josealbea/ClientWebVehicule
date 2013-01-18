@@ -2,7 +2,7 @@
 
 loadXMLFile("http://achetervehicule.com/webservice/?controller=vehicule&action=index&type=2");
 
-function loadXMLFile($url, $page) 
+function loadXMLFile($url) 
 {
 	global $vehicules;
 	$ch = curl_init();
