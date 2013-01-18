@@ -78,7 +78,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			<table>
 				<tr>
 					<td>Votre recherche : </td>
-					<td><label for="amount">Votre budget : </label> : <input type="text" id="amount" style="border: 0; background: none; color: #f6931f; font-weight: bold; width: 130px;" /></td>
+					<td><label for="amount">Votre budget : </label><input type="text" id="amount" style="border: 0; background: none; color: #f6931f; font-weight: bold; width: 130px;" /></td>
 					<td>Type de véhicule : </td>
 					<td>Votre département : </td>
 				</tr>
@@ -95,12 +95,12 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					<td><input type="text" name="departement" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
-					<td>Année</td>
-					<td>Boite de vitesse</td>
-					<td>Energie</td>
+					<td>Année :</td>
+					<td>Boite de vitesse :</td>
+					<td>Energie :</td>
 				</tr>
 				<tr>
-					<td><input type="text" name="annee" placeholder="Ex : 2010" /></td>
+					<td><input type="text" name="annee" placeholder="Ex : 2010" maxlength="4"/></td>
 					<td>
 						<select name="boite" />
 							<option value="" selected disabled>Boite de vitesse</option>
