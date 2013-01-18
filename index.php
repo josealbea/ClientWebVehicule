@@ -69,6 +69,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			    <a href="#signup" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
+			    <a href="#signup2" role="button" class="btn" data-toggle="modal">
+				    Inscription
+			    </a>
 				    <ul class="dropdown-menu">
 				    <!-- dropdown menu links -->
 				    </ul>
@@ -82,6 +85,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<li><a href="<?= SITE_ROOT; ?>vehicule/scooter"><img src="<?= PUBLIC_ROOT ?>img/icons/scooter.png" /> Scooters</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/moto"><img src="<?= PUBLIC_ROOT ?>img/icons/moto.png" /> Motos</a></li>
 				<li><a href="<?= SITE_ROOT; ?>contact/index"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
+				<li><a href="<?= SITE_ROOT; ?>vehicule/ajout"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Déposez une annonce</a></li>
 			</ul>
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
@@ -166,5 +170,23 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<button type="submit" class="btn btn-primary">Connexion</button>
 	</div>
 </div>
+
+<div id="signup2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+	<div class="modal-header">
+		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+		<h3 id="myModalLabel2">Inscription - <?= SITE_NAME; ?></h3>
+	</div>
+	<div class="modal-body">
+		<form action="" method="post">
+			<input type="text" name="email" placeholder="Votre email" required>
+			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
+		</form>
+	</div>
+	<div class="modal-footer">
+		<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
+		<button type="submit" class="btn btn-primary">Inscription</button>
+	</div>
+</div>
+
 </body>
 </html>
