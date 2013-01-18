@@ -498,7 +498,6 @@ body .ui-tooltip { border-width: 2px; }
 ----------------------------------*/
 .ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default { width: 25px; height: 24px; background: url(../img/ui/btn-range.png) 50% 20% no-repeat; font-weight: bold; color: #3383bb; }
 .ui-state-default a, .ui-state-default a:link, .ui-state-default a:visited { color: #3383bb; text-decoration: none; }
-.ui-state-hover, .ui-widget-content .ui-state-hover, .ui-widget-header .ui-state-hover, .ui-state-focus, .ui-widget-content .ui-state-focus, .ui-widget-header .ui-state-focus { width: 25px; height: 24px; background: url(../img/ui/btn-range.png) 50% 20% no-repeat; font-weight: bold; color: #599fcf; }
 .ui-state-hover a, .ui-state-hover a:hover, .ui-state-hover a:link, .ui-state-hover a:visited { color: #599fcf; text-decoration: none; }
 .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active { width: 25px; height: 24px; background: url(../img/ui/btn-range.png) 50% 20% no-repeat; font-weight: bold; color: #ffffff; }
 .ui-state-active a, .ui-state-active a:link, .ui-state-active a:visited { color: #ffffff; text-decoration: none; }
