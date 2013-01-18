@@ -29,6 +29,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
 	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>bootstrap/js/bootstrap.js"></script>
+	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/main.js"></script>
+	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/jquery.ui.addresspicker.js"></script>
+	
     <script>
     $(function() {
         $( "#slider-range" ).slider({
@@ -87,12 +90,12 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					<td><div id="slider-range"></div></td>
 					<td>
 						<select name="type" />
-							<option value="voiture">Voiture</option>
-							<option value="moto">Moto</option>
-							<option value="scooter">Scooter</option>
+							<option value="1">Voiture</option>
+							<option value="2">Moto</option>
+							<option value="3">Scooter</option>
 						</select>
 					</td>
-					<td><input type="text" name="departement" maxlength="5" placeholder="Ex : 75016" /></td>
+					<td><input type="text" name="departement" id="dep" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
 					<td>Année</td>
