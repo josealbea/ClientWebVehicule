@@ -11,7 +11,7 @@ function loadXMLFile($url, $page)
 	$result = utf8_decode(curl_exec($ch));
 	curl_close($ch);
 	$annonces = new DOMDocument();
-	$annonces->loadHTML($result);
+	$annonces->loadXML($result);
 	$vehicules=$annonces->getElementsByTagName("vehicule");
 
 	return $vehicules;
