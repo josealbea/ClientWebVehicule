@@ -1,17 +1,28 @@
 <?php 
 
-function ajoutMembre() {
-	$service_url = "http://achetervehicule.com/webservice/?controller=user&action=index";
-	$curl = curl_init($service_url);
-	$curl_post_data = array(
-	    "id" => 42,
-	    "email" => 'lorna@example.com',
-	    );
-	curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
-	curl_setopt($curl, CURLOPT_POST, true);
-	curl_setopt($curl, CURLOPT_POSTFIELDS, $curl_post_data);
-	$curl_response = curl_exec($curl);
-	curl_close($curl);
+init();
 
-	$xml = new SimpleXMLElement($curl_response);
+function init() {
+	ajoutMembre();
+}
+
+function ajoutMembre() {
+	$curl = curl_init($service_url);
+	if (!empty($_POST)) {
+		$formData = $_POST;
+		$vars="pseudo=".$formData['pseudo']."&password=".$formData['password']."&mail=".$formData['mail']."&nom=".$formData['nom']."&ville=".$formData['ville']."&code_postal=".$formData['cp'];
+		echo $vars;
+		$ch=curl_init('http://localhost/projetB3/users/index');
+		curl_setopt($ch,CURLOPT_POST, true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$ret = curl_exec($ch);
+		if (!$ret) {
+		    echo curl_error($ch);
+		} else {
+		    echo $ret;
+		}
+
+		curl_close($ch);
+	}
 }

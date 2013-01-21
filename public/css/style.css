@@ -899,7 +899,7 @@ label {
 	text-align:left;
 	float: left;
 	font-size: 13px;
-	line-height: 30px;
+	line-height: 43px !important;
 }
 
 input, textarea {

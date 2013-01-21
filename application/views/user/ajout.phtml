@@ -4,31 +4,23 @@
 <div id="erreurnom"></div>
 <div id="erreurprenom"></div>
 <div id="erreurville"></div>
-<div id="erreurcp"></div>
 <div id="erreurtel"></div>
 <div id="signup_form">
 	<form action="" method="post" name="form1" id="form1" class="form1">
 		<label for="mail">Votre adresse mail</label>
 		<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
-		<label for="mail2">Retapez</label>
-		<input type="text" id="mail2" name="mail2" placeholder="Ex : jean.dupont@achetervehicule.com"/>
 		<label for="pseudo">Votre pseudo</label>
 		<input type="text" name="pseudo" id="pseudo" placeholder="Ex : JDupont"/>
 		<label for="password">Mot de passe</label>
 		<input type="password" name="password" id="password"/>
-		<label for="password2">Retapez</label>
-		<input type="password" name="password2" id="password2"/>
 
 </div>
 <div id="signup_form">
-	<label for="nom">Votre nom</label>
+	<label for="nom">Votre nom et prénom</label>
 	<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
-	<label for="prenom">Votre prénom</label>
-	<input type="text" name="prenom" id="prenom" placeholder="Ex : Jean"/>
 	<label for="ville">Votre ville</label>
 	<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
-	<label for="cp">Votre code postal</label>
-	<input type="text" name="cp" id="cp" placeholder="Ex : 75016"/>
+	<input type="hidden" name="cp" id="cp"/>
 	<label for="tel">Votre téléphone</label>
 	<input type="text" name="tel" id="tel" placeholder="Ex : 061122334455"/>
 	<input type="submit" value="S'inscrire">
@@ -49,35 +41,19 @@ $(function(){
    });
 	$('#mail')
       .bind('blur',function(event) {
-      verifMail(mail);
-   });
-	$('#mail2')
-      .bind('blur',function(event) {
-      verifMail2(mail2);
+      verifMail();
    });
    $('#password')
       .bind('blur',function(event) {
       verifPasswordEmpty();
    });
-   $('#password2')
-      .bind('blur',function(event) {
-      verifPassword();
-   });
    $('#nom')
       .bind('blur',function(event) {
       verifNomEmpty();
    });
-   $('#prenom')
-      .bind('blur',function(event) {
-      verifPrenomEmpty();
-   });
    $('#ville')
       .bind('blur',function(event) {
       verifVilleEmpty();
-   });
-   $('#cp')
-      .bind('blur',function(event) {
-      verifCodePostalEmpty();
    });
    $('#tel')
       .bind('blur',function(event) {
@@ -85,8 +61,9 @@ $(function(){
    });
 });
 
-function verifMail(champ)
+function verifMail()
 {
+   var champ = document.getElementById("mail");
    var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
    if(champ.value.length < 1)
@@ -104,69 +81,6 @@ function verifMail(champ)
    {
       surligne(champ, false);
       document.getElementById("erreurmail").innerHTML="";
-      return true;
-   }
-}
-
-function verifMail2(champ)
-{
-   var mail = document.getElementById("mail").value;
-   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
-
-   if(champ.value.length < 1)
-   {
-      surligne(champ, true);
-     document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
-     return false;
-   }
-   else if(!regMailExpression.test(champ.value)) {
-        surligne(champ,true);
-        document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
-        return false;
-   }
-   else if (champ.value != mail) 
-   {
-      surligne(champ, true);
-      document.getElementById("erreurmail").innerHTML="<div class='notif error'>Les adresses mail ne concordent pas</div>";
-      return false;
-   }
-   else
-   {
-      surligne(champ, false);
-      document.getElementById("erreurmail").innerHTML="";
-      return true;
-   }
-}
-
-function verifPassword()
-{
-   var password = document.getElementById("password");
-   var password2 = document.getElementById("password2");
-
-   if(password.value.length < 1)
-   {
-     surligne(champ, true);
-     document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
-     return false;
-   }
-   if (password.value != password2.value) 
-   {
-      surligne(password, true);
-      surligne(password2, true);
-      document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Les mots de passe ne concordent pas</div>";
-      return false;
-   }
-   else if (password.value.length < 4 || password.value.length > 12) 
-   {
-      surligne(password, true);
-      document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe doit contenir entre 4 et 12 caractères.</div>";
-      return false;
-   }
-   else
-   {
-      surligne(password, false);
-      surligne(password2, false);
-      document.getElementById("erreurpassword").innerHTML="";
       return true;
    }
 }
@@ -207,24 +121,6 @@ function verifNomEmpty()
    }
 }
 
-function verifPrenomEmpty()
-{
-   var prenom = document.getElementById("prenom");
-
-   if(prenom.value.length < 1)
-   {
-     surligne(prenom, true);
-     document.getElementById("erreurprenom").innerHTML="<div class='notif error'>Le prénom est obligatoire</div>";
-     return false;
-   }
-   else
-   {
-      surligne(prenom, false);
-      document.getElementById("erreurprenom").innerHTML="";
-      return true;
-   }
-}
-
 function verifVilleEmpty()
 {
    var ville = document.getElementById("ville");
@@ -243,33 +139,21 @@ function verifVilleEmpty()
    }
 }
 
-function verifCodePostalEmpty()
-{
-   var cp = document.getElementById("cp");
-
-   if(cp.value.length < 1)
-   {
-     surligne(cp, true);
-     document.getElementById("erreurcp").innerHTML="<div class='notif error'>Le code postal est obligatoire</div>";
-     return false;
-   }
-   else
-   {
-      surligne(cp, false);
-      document.getElementById("erreurcp").innerHTML="";
-      return true;
-   }
-}
-
 function verifTelephoneEmpty()
 {
    var tel = document.getElementById("tel");
+   var regMailExpression = /^[0-9]+$/;
 
    if(tel.value.length < 1)
    {
      surligne(tel, true);
      document.getElementById("erreurtel").innerHTML="<div class='notif error'>Le téléphone est obligatoire</div>";
      return false;
+   }
+   else if(!regMailExpression.test(tel.value)) {
+      surligne(tel,true);
+      document.getElementById("erreurtel").innerHTML="<div class='notif error'>Le téléphone est invalide</div>";
+      return false;
    }
    else
    {
@@ -279,33 +163,15 @@ function verifTelephoneEmpty()
    }
 }
 
-
-function verifMails(champ1, champ2)
-{
-
-	if (champ1 != champ2) {
-		surligne(champ2, true);
-		document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
-   	 	return false;
-	}
-	else {
-		surligne(champ2,false);
-		document.getElementById("erreurmail").innerHTML="";
-   	 	return true;
-	}
-}
-
 function verifSubmit(f) 
 {
-   var mailOk = verifMails(f.password, f.password2);
-   var mdpOk = verifPassword();
+   var mailOk = verifMail();
+   var mdpOk = verifPasswordEmpty();
    var nomOk = verifNomEmpty();
-   var prenomOk = verifPrenomEmpty();
    var villeOk = verifVilleEmpty();
-   var cpOk = verifCodePostalEmpty();
    var telOk = verifTelephoneEmpty();
    
-   if(mailOk && mdpOk && nomOk && prenomOk && villeOk && cpOk && telOk)
+   if(mailOk && mdpOk && nomOk && villeOk && telOk)
       return true;
    else
    {

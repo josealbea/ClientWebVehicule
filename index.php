@@ -28,7 +28,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     <link rel="stylesheet" href="<?= PUBLIC_ROOT; ?>bootstrap/css/bootstrap.css">
     <script src="http://code.jquery.com/jquery-1.8.2.js"></script>
     <script src="http://code.jquery.com/ui/1.9.1/jquery-ui.js"></script>
-    <script src="http://maps.google.com/maps/api/js?sensor=false"></script>
+    <script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?libraries=places&sensor=false"></script>
 	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>bootstrap/js/bootstrap.js"></script>
 	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/main.js"></script>
 	<script type="text/javascript" src="<?= PUBLIC_ROOT; ?>js/jquery.ui.addresspicker.js"></script>
@@ -90,7 +90,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
 		<div id="form-search" style="display:none;">
-		<form action="" method="post">
+		<form action="<?= SITE_ROOT; ?>vehicule/recherche" method="get">
 			<table>
 				<tr>
 					<td>Votre recherche : </td>
@@ -124,24 +124,27 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					</td>
 					<td>
 						<div class="choix_boite">
-		        			<input type="radio" name="boite" value="1" id="boite1" class="radioSlider" style="">
+		        			<input type="radio" name="boite" value="Manuelle" id="boite1" class="radioSlider" style="">
 	        			    <label for="boite1">Manuelle</label>
-	        			    <input type="radio" name="boite" value="2" id="boite2" class="radioSlider" style="">
+	        			    <input type="radio" name="boite" value="Automatique" id="boite2" class="radioSlider" style="">
 	        			    <label for="boite2">Automatique</label>
 		    		    </div>
 		    		</td>
 					</td>
 					<td>
 						<div class="choix_energie">
-		        			<input type="radio" name="energie" value="1" id="energie1" class="radioSlider" style="">
+		        			<input type="radio" name="energie" value="Diesel" id="energie1" class="radioSlider" style="">
 	        			    <label for="energie1">Diesel</label>
-	        			    <input type="radio" name="type" value="2" id="energie2" class="radioSlider" style="">
+	        			    <input type="radio" name="type" value="Essence" id="energie2" class="radioSlider" style="">
 	        			    <label for="energie2">Essence</label>
-	        			    <input type="radio" name="type" value="3" id="energie3" class="radioSlider" style="">
+	        			    <input type="radio" name="type" value="GPL" id="energie3" class="radioSlider" style="">
 	        			    <label for="energie3">GPL</label>
-	        			    <input type="radio" name="type" value="3" id="energie4" class="radioSlider" style="">
+	        			    <input type="radio" name="type" value="Electrique" id="energie4" class="radioSlider" style="">
 	        			    <label for="energie4">Electrique</label>
 		    		    </div>
+					</td>
+					<td>
+						<input type="submit" value="Rechercher" />
 					</td>
 				</tr>
 			</table>
