@@ -2,7 +2,7 @@
 <div id="gauche_fiche">
 	<h2><?= $unVehicule->getAttribute("titre"); ?></h2>
 	<div id="infos-annonce">
-		Mis en ligne le <?php echo date("j/m/Y", strtotime($unVehicule->getAttribute("date_ajout"))); ?> par <a href="#"><?= $unVehicule->firstChild->getAttribute("pseudo"); ?></a>
+		Mis en ligne le <?php echo date("j/m/Y", strtotime($unVehicule->getAttribute("date_ajout"))); ?> par <a href="#"><?= $unVehicule->firstChild->getAttribute("nom"); ?></a>
 		<div id="photo-fiche"><img src="http://193.164.197.50/images/965/965222114607667.jpg" alt=""></div>
 	</div>
 </div>
@@ -41,7 +41,7 @@
 	</table>
 	<div id="fiche_contact">
 		<div id="header_contact">
-			<?= $unVehicule->firstChild->getAttribute("prenom"); ?> <?= $unVehicule->firstChild->getAttribute("nom"); ?>
+			<?= $unVehicule->firstChild->getAttribute("nom"); ?>
 		</div>
 		<div class="ligne_contact">
 			<img src="img/icons/user.png" width="20" /> <a href="">Contacter-le</a>

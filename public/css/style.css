@@ -903,7 +903,7 @@ label {
 }
 
 input, textarea {
-	float:left;
+	float:right;
 	width: 65%;
 	margin-bottom: 10px;
 	resize: none;

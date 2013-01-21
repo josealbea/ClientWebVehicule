@@ -66,10 +66,10 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			</div>
 			<div id="menu-user">
 			    <div class="btn-group">
-			    <a href="#signup" role="button" class="btn" data-toggle="modal">
+			    <a href="#signin" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
-			    <a href="#signup2" role="button" class="btn" data-toggle="modal">
+			    <a href="#signup" role="button" class="btn" data-toggle="modal">
 				    Inscription
 			    </a>
 				    <ul class="dropdown-menu">
@@ -151,20 +151,24 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		</form>
 		</div>
 		<div id="content">
+			<?php if (isset($erreur) || !empty($erreur)) {
+				echo $erreur;
+			}
+			?>
 			<?php include_once APPLICATION_PATH.'views/'.$controller.'/'.$action.'.phtml'; ?>
 		</div>
 	</div>
 <div id="footer">
 	Copyright 2012 - Projet réalisé par Lucas Buisine, Yohann Teisseire et José Albea.
 </div>
-<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="signin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel">Connexion - <?= SITE_NAME; ?></h3>
 	</div>
 	<div class="modal-body">
 		<form action="" method="post">
-			<input type="text" name="pseudo" placeholder="Votre pseudo" required>
+			<input type="text" name="mail" placeholder="Votre adresse mail" required>
 			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
 		</form>
 	</div>
@@ -174,38 +178,14 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	</div>
 </div>
 
-<div id="signup2" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel2">Inscription - <?= SITE_NAME; ?></h3>
 	</div>
 	<div class="modal-body">
-		<form action="" method="post" name="form1" id="form1" class="form1">
-			<label for="mail">Votre adresse mail</label>
-			<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
-			<label for="mail2">Retapez</label>
-			<input type="text" id="mail2" name="mail2" placeholder="Ex : jean.dupont@achetervehicule.com"/>
-			<label for="pseudo">Votre pseudo</label>
-			<input type="text" name="pseudo" id="pseudo" placeholder="Ex : JDupont"/>
-			<label for="password">Mot de passe</label>
-			<input type="password" name="password" id="password"/>
-			<label for="password2">Retapez</label>
-			<input type="password" name="password2" id="password2"/>
-			<label for="nom">Votre nom</label>
-			<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
-			<label for="prenom">Votre prénom</label>
-			<input type="text" name="prenom" id="prenom" placeholder="Ex : Jean"/>
-			<label for="ville">Votre ville</label>
-			<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
-			<label for="cp">Votre code postal</label>
-			<input type="text" name="cp" id="cp" placeholder="Ex : 75016"/>
-			<label for="tel">Votre téléphone</label>
-			<input type="text" name="tel" id="tel" placeholder="Ex : 061122334455"/>
-			<div class="modal-footer">
-				<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
-				<button type="submit" class="btn btn-primary">Inscription</button>
-			</div>
-		</form>
+		<?php require APPLICATION_PATH.'controllers/user/ajout.php'; ?>
+		<?php require APPLICATION_PATH.'views/user/ajout.phtml'; ?>
 	</div>
 
 </body>
