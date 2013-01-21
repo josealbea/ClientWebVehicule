@@ -164,7 +164,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	</div>
 	<div class="modal-body">
 		<form action="" method="post">
-			<input type="text" name="email" placeholder="Votre email" required>
+			<input type="text" name="pseudo" placeholder="Votre pseudo" required>
 			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
 		</form>
 	</div>
@@ -180,16 +180,33 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<h3 id="myModalLabel2">Inscription - <?= SITE_NAME; ?></h3>
 	</div>
 	<div class="modal-body">
-		<form action="" method="post">
-			<input type="text" name="email" placeholder="Votre email" required>
-			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
+		<form action="" method="post" name="form1" id="form1" class="form1">
+			<label for="mail">Votre adresse mail</label>
+			<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+			<label for="mail2">Retapez</label>
+			<input type="text" id="mail2" name="mail2" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+			<label for="pseudo">Votre pseudo</label>
+			<input type="text" name="pseudo" id="pseudo" placeholder="Ex : JDupont"/>
+			<label for="password">Mot de passe</label>
+			<input type="password" name="password" id="password"/>
+			<label for="password2">Retapez</label>
+			<input type="password" name="password2" id="password2"/>
+			<label for="nom">Votre nom</label>
+			<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
+			<label for="prenom">Votre prénom</label>
+			<input type="text" name="prenom" id="prenom" placeholder="Ex : Jean"/>
+			<label for="ville">Votre ville</label>
+			<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
+			<label for="cp">Votre code postal</label>
+			<input type="text" name="cp" id="cp" placeholder="Ex : 75016"/>
+			<label for="tel">Votre téléphone</label>
+			<input type="text" name="tel" id="tel" placeholder="Ex : 061122334455"/>
+			<div class="modal-footer">
+				<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
+				<button type="submit" class="btn btn-primary">Inscription</button>
+			</div>
 		</form>
 	</div>
-	<div class="modal-footer">
-		<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
-		<button type="submit" class="btn btn-primary">Inscription</button>
-	</div>
-</div>
 
 </body>
 </html>
