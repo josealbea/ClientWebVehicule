@@ -943,29 +943,27 @@ input[type=submit] {
 	height: 30px;
 	line-height: 30px;
 	text-align:center;
-	color: #000000;
-	background: #ffffff; /* Old browsers */
-	background: -moz-linear-gradient(top,  #ffffff 0%, #e5e5e5 100%); /* FF3.6+ */
-	background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffffff), color-stop(100%,#e5e5e5)); /* Chrome,Safari4+ */
-	background: -webkit-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Chrome10+,Safari5.1+ */
-	background: -o-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* Opera 11.10+ */
-	background: -ms-linear-gradient(top,  #ffffff 0%,#e5e5e5 100%); /* IE10+ */
-	background: linear-gradient(to bottom,  #ffffff 0%,#e5e5e5 100%); /* W3C */
-	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffffff', endColorstr='#e5e5e5',GradientType=0 ); /* IE6-9 */
-	border: 1px solid #D1D1D1;
-	border-radius: 5px;
 	width: 150px;
 	float:right;
 	margin-top: 20px;
 	margin-right: 20px;
-	font-weight: normal;
-	font-size: 14px;
+	background: linear-gradient(to bottom, #EE0036 0%, #ae252f 100%) repeat scroll 0 0 transparent;
+	border-radius:4px;
+	box-shadow: 0 2px 2px #000;
+	font-size: 13px;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 11px;
+	text-shadow: 0 1px 1px #000;
+	
 }
+
 
 #plan_contact {
 	float: right;
-    height: 360px;
-    width: 50%;
+    height: 330px;
+    width: 466px;
+
 }
 
 #signup {
