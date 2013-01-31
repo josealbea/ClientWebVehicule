@@ -1,9 +1,14 @@
 <h1>Formulaire de contact</h1>
+<div id="erreurnom"></div>
+<div id="erreurprenom"></div>
+<div id="erreurmail"></div>
+<div id="erreursujet"></div>
+<div id="erreurmessage"></div>
 <p>
 	Si vous avez des questions, des suggestions ou tout autre problème, n'hésitez pas a utiliser notre formulaire de contact ci-dessous.
 </p>
 <div id="contact_form">
-	<form action="">
+	<form action="" id="form1">
 		<label for="nom">Votre nom</label>
 		<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
 		<label for="prenom">Votre prénom</label>
@@ -20,3 +25,157 @@
 <div id="plan_contact">
 	<iframe width="100%" height="100%" frameborder="0" scrolling="no" marginheight="0" marginwidth="0" src="https://maps.google.fr/maps?f=q&amp;source=s_q&amp;hl=fr&amp;geocode=&amp;q=53+rue+de+grenelle&amp;aq=&amp;sll=48.680793,2.502588&amp;sspn=1.860573,4.938354&amp;ie=UTF8&amp;hq=&amp;hnear=53+Rue+de+Grenelle,+75007+Paris,+%C3%8Ele-de-France&amp;ll=48.854654,2.325339&amp;spn=0.007243,0.01929&amp;t=m&amp;z=14&amp;iwloc=A&amp;output=embed&amp;iwloc=near"></iframe>
 </div>
+
+<script type="text/javascript">
+function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.borderColor = "#df8f90";
+   else
+      champ.style.borderColor = "";
+}
+$(function(){ 
+   $('#form1')
+      .bind('submit',function(event) {
+      return verifSubmit(form1);
+   });
+    $('#nom')
+      .bind('blur',function(event) {
+      verifNom();
+     });
+	$('#prenom')
+      .bind('blur',function(event) {
+      verifPrenom();
+     });
+    $('#mail')
+      .bind('blur',function(event) {
+      verifMail();
+     });
+    $('#sujet')
+      .bind('blur',function(event) {
+      verifSujet();
+     });
+     $('#message')
+      .bind('blur',function(event) {
+      verifMessage();
+     });
+});
+
+function verifNom()
+{
+   var champ = document.getElementById("nom");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurnom").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurnom").innerHTML="";
+      return true;
+   }
+}
+
+function verifPrenom()
+{
+   var champ = document.getElementById("prenom");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurprenom").innerHTML="<div class='notif error'>Le prénom est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurdescription").innerHTML="";
+      return true;
+   }
+}
+
+function verifMail()
+{
+   var champ = document.getElementById("mail");
+   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+	  return false;
+   }
+   else if(!regMailExpression.test(champ.value)) {
+   	  surligne(champ,true);
+   	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
+   	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmail").innerHTML="";
+      return true;
+   }
+}
+
+
+
+function verifSujet()
+{
+   var champ = document.getElementById("sujet");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreursujet").innerHTML="<div class='notif error'>Le sujet est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreursujet").innerHTML="";
+      return true;
+   }
+}
+
+function verifMessage()
+{
+   var champ = document.getElementById("message");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurmessage").innerHTML="<div class='notif error'>Le message est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmessage").innerHTML="";
+      return true;
+   }
+}
+
+
+
+
+function verifSubmit(f) 
+{
+   var nomOk = verifNom();
+   var prenomOk = verifPrenom();
+   var mailOk = verifMail();
+   var sujetOk = verifSujet();
+   var messageOk = verifMessage();
+   
+   if(nomOk && prenomOk && mailOk && sujetOk && messageOk)
+      return true;
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+}
+</script>
