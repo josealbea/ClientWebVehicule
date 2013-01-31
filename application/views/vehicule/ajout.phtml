@@ -1,38 +1,39 @@
-<h1>Poster votre annonce</h1>
-<div id="contact_form">
+<h1>Déposer votre annonce</h1>
 <form action="" method="post">
-	<label>Votre titre :</label>
-	<input type="text" name="titre" placeholder="Ex: Peugeot 206 noir" required value="" id="titre">
-	<label>Votre description :</label>
-	<textarea name="description" required value="" id="description"></textarea>
-	<label>Votre catégorie :</label>
-	<select name="categorie" id="categorie">
-		<option id="voiture">voiture</option>
-		<option id="moto">moto</option>
-		<option id="scooter">scooter</option>
-	</select>
-	<label>Votre prix :</label>
-	<input type="text" name="prix" placeholder="Ex: 2000" required value="" id="prix">
-	<label>Votre  année:</label>
-	<input type="text" name="annee" placeholder="Ex: 2012" required value="" id="annee">
-	<label>Votre energie :</label>
-	<input type="text" name="energie" placeholder="Ex: diesel" required value="" id="energie">
-	<div id="show_voiture">
-	<label>Boite de vitesse :</label>
-	<input type="text" name="boite_vitesse" placeholder="Ex: automatique" required value="" id="boite_vitesse">
-	<label>Nombre deplaces :</label>
-	<input type="text" name="nb_places" placeholder="Ex: 5" required value="" id="nb_places">
+	<div id="mid_left">
+		<label>Votre titre :</label>
+		<input type="text" name="titre" placeholder="Ex: Peugeot 206 noir"id="titre">
+		<label>Votre description :</label>
+		<textarea name="description" id="description"></textarea>
+		<label>Votre catégorie :</label>
+		<select name="categorie" id="categorie">
+			<option id="voiture">voiture</option>
+			<option id="moto">moto</option>
+			<option id="scooter">scooter</option>
+		</select>
 	</div>
-	<div id="show_cylindree" style="display:none;">
-	<label>Votre cylindrée:</label>
-	<input type="text" name="cylindree" placeholder="Ex: 125" required value="" id="cylindree">
+	<div id="mid_right">
+		<label>Votre prix :</label>
+		<input type="text" name="prix" placeholder="Ex: 2000" id="prix">
+		<label>Votre  année:</label>
+		<input type="text" name="annee" placeholder="Ex: 2012" id="annee">
+		<label>Votre energie :</label>
+		<input type="text" name="energie" placeholder="Ex: diesel" id="energie">
+		<div id="show_voiture">
+		<label>Boite de vitesse :</label>
+		<input type="text" name="boite_vitesse" placeholder="Ex: automatique" id="boite_vitesse">
+		<label>Nombre deplaces :</label>
+		<input type="text" name="nb_places" placeholder="Ex: 5" id="nb_places">
+		</div>
+		<div id="show_cylindree" style="display:none;">
+		<label>Votre cylindrée:</label>
+		<input type="text" name="cylindree" placeholder="Ex: 125" id="cylindree">
+		<input type="file" multiple name="photo" value="" id="photo">
+		</div>
+		<input type="submit" value="Valider" id="envoyer">
 	</div>
-	<input type="submit" value="Valider" id="envoyer">
 </form>
-</div>
-<div id="plan_contact">
-	<input type="file" multiple name="photo" value="" id="photo">
-</div>
+	
 <script type="text/javascript">
  	$("#voiture").click(function () {
  		$("#show_cylindree").hide();

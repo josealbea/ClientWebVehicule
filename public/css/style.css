@@ -886,6 +886,17 @@ body .ui-tooltip { border-width: 2px; }
 	filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ecedef', endColorstr='#e8e9eb',GradientType=0 ); /* IE6-9 */
 }
 
+td {
+	float: left;
+	text-align: left;
+	margin-right: 30px;
+	width: 210px;
+}
+
+.choix_vehicule_td {
+	width: 240px;
+}
+
 
 /** CONTACT FORM **/
 
@@ -899,7 +910,7 @@ label {
 	text-align:left;
 	float: left;
 	font-size: 13px;
-	line-height: 43px !important;
+	line-height: 43px ;
 }
 
 input, textarea {
@@ -1016,4 +1027,16 @@ input[type=submit] {
     border-color: rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.1) rgba(0, 0, 0, 0.25);
     color: #FFFFFF !important;
     text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+}
+
+/*************** FORMS *********************/
+
+#mid_left {
+	float: left;
+	width: 50%;
+}
+
+#mid_right {
+	float: right;
+	width: 50%;
 }
