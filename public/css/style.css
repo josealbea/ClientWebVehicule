@@ -919,7 +919,8 @@ margin-left: 10px;
 	float: left;
 	width: 50%;
 }
-
+#form1 label{clear: both;}
+#connexionForm label{clear:both;}
 #content label {
 	width: 30%;
 	text-align:left;
