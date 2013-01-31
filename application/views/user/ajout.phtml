@@ -27,7 +27,7 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-   $('form')
+   $('#form1')
       .bind('submit',function(event) {
       return verifSubmit(form1);
    });
@@ -60,7 +60,7 @@ function verifMail()
 
    if(champ.value.length < 1)
    {
-      surligne(champ, true);
+    surligne(champ, true);
 	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
 	  return false;
    }

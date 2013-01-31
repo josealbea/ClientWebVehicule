@@ -1,0 +1,113 @@
+<div id="erreurmail"></div>
+<div id="erreurpassword"></div>
+<div id="notif_connect">
+</div>
+<form action="#" method="post" name="connexionForm" id="connexionForm">
+	<label for="mail_connect">Votre adresse mail</label>
+	<input type="text" id="mail_connect" name="mail_connect" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+	<label for="password_connect">Mot de passe</label>
+	<input type="password" name="password_connect" id="password_connect"/>
+<input type="submit" value="Connexion">
+</form>
+
+<script type="text/javascript">
+function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.borderColor = "#df8f90";
+   else
+      champ.style.borderColor = "";
+}
+$(function(){ 
+   $('#form2')
+      .bind('submit',function(event) {
+      return verifSubmitC(form2);
+   });
+   $('#mail_connect')
+      .bind('blur',function(event) {
+      verifMailC();
+   });
+   $('#password_connect')
+      .bind('blur',function(event) {
+      verifPasswordEmptyC();
+   });
+});
+
+
+function verifMailC()
+{
+   var champ = document.getElementById("mail_connect");
+   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+	  return false;
+   }
+   else if(!regMailExpression.test(champ.value)) {
+   	  surligne(champ,true);
+   	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
+   	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmail").innerHTML="";
+      return true;
+   }
+}
+
+function verifPasswordEmptyC()
+{
+   var password = document.getElementById("password_connect");
+
+   if(password.value.length < 1)
+   {
+     surligne(password, true);
+     document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
+     return false;
+   }
+   else
+   {
+      surligne(password, false);
+      document.getElementById("erreurpassword").innerHTML="";
+      return true;
+   }
+}
+
+function verifSubmitC(f) 
+{
+   var mailOkC = verifMailC();
+   var mdpOkC = verifPasswordEmptyC();
+   var success = 0;
+   if(mailOkC && mdpOkC) {
+   	success = 1;
+   }
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+   if (success == 1) {
+		alert("false");					 
+			$.ajax({
+			   type: "POST",
+			   url: "http://localhost/users/connect",
+			   data: "mail="+$("#mail_connect").val()+"&password="+$("#password_connect").val(),
+			   success: function(msg){
+					if(msg==1)
+					{
+						$("#notif_connect").html("<span id=\"confirmMsg\">Vous &ecirc;tes maintenant connect&eacute;.</span>");
+						
+					}
+					else
+					{
+						$("#notif_connect").html("<img src=\"bomb.png\" style=\"float:left;\" />&nbsp;Erreur lors de la connexion, veuillez v&eacute;rifier votre login et votre mot de passe.");
+					}
+			   }
+			});
+			return false;)
+	}
+}
+</script>

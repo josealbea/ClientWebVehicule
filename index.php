@@ -107,12 +107,12 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					<td><input type="text" name="departement" id="dep" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
-					<td>Type de véhicule :</td>
+					<td class="choix_vehicule_td">Type de véhicule :</td>
 					<td>Boite de vitesse :</td>
 					<td>Energie :</td>
 				</tr>
 				<tr>
-					<td>
+					<td class="choix_vehicule_td">
 						<div class="choix_vehicule">
 		        			<input type="radio" name="type" value="1" id="type1" class="radioSlider" style="">
 	        			    <label for="type1">Voiture</label>
@@ -143,8 +143,8 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	        			    <label for="energie4">Electrique</label>
 		    		    </div>
 					</td>
-					<td>
-						<input type="submit" value="Rechercher" />
+					<td style="width: 180px;">
+						<input type="submit" value="Rechercher" style="margin-top: 0;" />
 					</td>
 				</tr>
 			</table>
@@ -167,14 +167,8 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<h3 id="myModalLabel">Connexion - <?= SITE_NAME; ?></h3>
 	</div>
 	<div class="modal-body">
-		<form action="" method="post">
-			<input type="text" name="mail" placeholder="Votre adresse mail" required>
-			<input type="text" name="mdp" placeholder="Votre mot de passe" required>
-		</form>
-	</div>
-	<div class="modal-footer">
-		<button type="reset"class="btn" data-dismiss="modal" aria-hidden="true">Retour</button>
-		<button type="submit" class="btn btn-primary">Connexion</button>
+		<?php require APPLICATION_PATH.'controllers/user/connect.php'; ?>
+		<?php require APPLICATION_PATH.'views/user/connect.phtml'; ?>
 	</div>
 </div>
 
