@@ -1,5 +1,10 @@
 <h1>Déposer votre annonce</h1>
-<form action="" method="post">
+<div id="erreurtitre"></div>
+<div id="erreurdescription"></div>
+<div id="erreurprix"></div>
+<div id="erreurannee"></div>
+<div id="erreurenergie"></div>
+<form action="" method="post" id="form1">
 	<div id="mid_left">
 		<label>Votre titre :</label>
 		<input type="text" name="titre" placeholder="Ex: Peugeot 206 noir"id="titre">
@@ -51,4 +56,148 @@
  		$("#show_voiture").hide();
 	});
 
+</script>
+
+<script type="text/javascript">
+function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.borderColor = "#df8f90";
+   else
+      champ.style.borderColor = "";
+}
+$(function(){ 
+   $('#form1')
+      .bind('submit',function(event) {
+      return verifSubmit(form1);
+   });
+    $('#titre')
+      .bind('blur',function(event) {
+      verifTitre();
+     });
+	$('#description')
+      .bind('blur',function(event) {
+      verifDescription();
+     });
+    $('#prix')
+      .bind('blur',function(event) {
+      verifPrix();
+     });
+    $('#anee')
+      .bind('blur',function(event) {
+      verifAnnee();
+     });
+     $('#energie')
+      .bind('blur',function(event) {
+      verifEnergie();
+     });
+});
+
+function verifTitre()
+{
+   var champ = document.getElementById("titre");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurtitre").innerHTML="<div class='notif error'>Le titre est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurtitre").innerHTML="";
+      return true;
+   }
+}
+
+function verifDescription()
+{
+   var champ = document.getElementById("description");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurdescription").innerHTML="<div class='notif error'>La description est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurdescription").innerHTML="";
+      return true;
+   }
+}
+
+function verifPrix()
+{
+   var champ = document.getElementById("prix");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurprix").innerHTML="<div class='notif error'>Le prix est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurprix").innerHTML="";
+      return true;
+   }
+}
+
+function verifAnnee()
+{
+   var champ = document.getElementById("annee");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurannee").innerHTML="<div class='notif error'>L'année est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurannee").innerHTML="";
+      return true;
+   }
+}
+function verifEnergie()
+{
+   var champ = document.getElementById("energie");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurenergie").innerHTML="<div class='notif error'>L'énergie est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurenergie").innerHTML="";
+      return true;
+   }
+}
+
+
+
+function verifSubmit(f) 
+{
+   var titreOk = verifTitre();
+   var descriptionk = verifDescription();
+   var prixOk = verifPrix();
+   var anneeOk = verifAnnee();
+   var energieOk = verifEnergie();
+   
+   if(titreOk && descriptionOk && prixOk && anneeOk && energieOk)
+      return true;
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+}
 </script>
