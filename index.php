@@ -159,7 +159,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		</div>
 	</div>
 <div id="footer">
+	<img src="<?= PUBLIC_ROOT ?>img/fb.png">
 	Copyright 2012 - Projet réalisé par Lucas Buisine, Yohann Teisseire et José Albea.
+	<img src="<?= PUBLIC_ROOT ?>img/twitter.png">
 </div>
 <div id="signin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
