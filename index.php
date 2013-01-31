@@ -181,6 +181,18 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<?php require APPLICATION_PATH.'controllers/user/ajout.php'; ?>
 		<?php require APPLICATION_PATH.'views/user/ajout.phtml'; ?>
 	</div>
+<script type="text/javascript">
+	$('#type1').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Voiture");});
+	$('#type2').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Moto");});
+	$('#type3').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Scooter");});
 
+	$('#boite1').click(function(){$('.choix_boite .radioSwitch-handle').html("Manuelle");});
+	$('#boite2').click(function(){$('.choix_boite .radioSwitch-handle').html("Automatique");});
+
+	$('#energie1').click(function(){$('.choix_energie .radioSwitch-handle').html("Diesel");});
+	$('#energie2').click(function(){$('.choix_energie .radioSwitch-handle').html("Essence");});
+	$('#energie3').click(function(){$('.choix_energie .radioSwitch-handle').html("GPL");});
+	$('#energie4').click(function(){$('.choix_energie .radioSwitch-handle').html("Electrique");});
+</script>
 </body>
 </html>

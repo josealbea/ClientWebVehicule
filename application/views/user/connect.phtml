@@ -19,9 +19,9 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-   $('#form2')
+   $('#connexionForm')
       .bind('submit',function(event) {
-      return verifSubmitC(form2);
+      return verifSubmitC(connexionForm);
    });
    $('#mail_connect')
       .bind('blur',function(event) {
@@ -93,8 +93,8 @@ function verifSubmitC(f)
 		alert("false");					 
 			$.ajax({
 			   type: "POST",
-			   url: "http://localhost/users/connect",
-			   data: "mail="+$("#mail_connect").val()+"&password="+$("#password_connect").val(),
+			   url: "http://localhost/projetB3/users/connect",
+			   data: "mail_connect="+$("#mail_connect").val()+"&password_connect="+$("#password_connect").val(),
 			   success: function(msg){
 					if(msg==1)
 					{
@@ -107,7 +107,7 @@ function verifSubmitC(f)
 					}
 			   }
 			});
-			return false;)
+			return false;
 	}
 }
 </script>
