@@ -800,6 +800,7 @@ input#connexion[type="submit"], #inscription[type="submit"]{
     padding-top: 6px;
     text-align: left;
     width: 67%;
+    color:grey;
 }
 
 #gauche .liste-prix {
