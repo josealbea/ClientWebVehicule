@@ -164,7 +164,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 <div id="signin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel">Connexion - <?= SITE_NAME; ?></h3>
+		<h3 id="myModalLabel">Connexion</h3>
 	</div>
 	<div class="modal-body">
 		<?php require APPLICATION_PATH.'controllers/user/connect.php'; ?>
@@ -175,7 +175,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 <div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel2">Inscription - <?= SITE_NAME; ?></h3>
+		<h3 id="myModalLabel2">Inscription </h3>
 	</div>
 	<div class="modal-body">
 		<?php require APPLICATION_PATH.'controllers/user/ajout.php'; ?>

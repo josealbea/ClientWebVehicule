@@ -750,6 +750,12 @@ body .ui-tooltip { border-width: 2px; }
 }
 
 /** CSS LISTE ANNONCE **/
+input#connexion[type="submit"], #inscription[type="submit"]{
+	clear: both;
+    margin: inherit;
+    padding: inherit;
+    width: 170px;
+}
 
 .annonce {
 	width: 100%;
@@ -887,7 +893,6 @@ body .ui-tooltip { border-width: 2px; }
 }
 
 td {
-	float: left;
 	text-align: left;
 	margin-right: 30px;
 	width: 210px;
@@ -899,7 +904,16 @@ td {
 
 
 /** CONTACT FORM **/
-
+select#categorie{
+	padding: 4px 6px;
+	margin-left: 10px;
+}
+#mid_left label{
+	margin-left: 3px;
+}
+#mid_right label{
+margin-left: 10px;
+}
 #contact_form {
 	float: left;
 	width: 50%;
@@ -911,6 +925,7 @@ label {
 	float: left;
 	font-size: 13px;
 	line-height: 43px ;
+	clear:both;
 }
 
 input, textarea {
@@ -955,7 +970,6 @@ input[type=submit] {
 	line-height: 30px;
 	text-align:center;
 	width: 150px;
-	float:right;
 	margin-top: 20px;
 	margin-right: 20px;
 	background: linear-gradient(to bottom, #EE0036 0%, #ae252f 100%) repeat scroll 0 0 transparent;
@@ -968,6 +982,7 @@ input[type=submit] {
 	text-shadow: 0 1px 1px #000;
 	
 }
+
 
 
 #plan_contact {
