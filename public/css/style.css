@@ -167,6 +167,7 @@ a#search_button, a:visited#search_button, a:link#search_button{
 }
 
 #form-search input[type=text] {
+	float: left;
 	background: #5F6777;
 	height: 20px;
 	line-height: 20px;
