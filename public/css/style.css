@@ -919,13 +919,20 @@ margin-left: 10px;
 	width: 50%;
 }
 
-label {
+#content label {
 	width: 30%;
 	text-align:left;
 	float: left;
 	font-size: 13px;
 	line-height: 43px ;
 	clear:both;
+}
+label {
+	width: 30%;
+	text-align:left;
+	float: left;
+	font-size: 13px;
+	line-height: 43px ;
 }
 
 input, textarea {
