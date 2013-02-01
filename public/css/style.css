@@ -766,7 +766,7 @@ input#connexion[type="submit"], #inscription[type="submit"]{
 	position:relative;
 }
 .annonce:hover{
-	background: none repeat scroll 0 0 #ECECEC;
+	background: none repeat scroll 0 0 #fefefe;
 }
 
 .photo-annonce {
