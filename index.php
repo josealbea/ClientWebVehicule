@@ -1,4 +1,5 @@
 <?php 
+session_start();
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
 define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
@@ -59,6 +60,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     </script>
 </head>
 <body>
+
 	<div id="global">
 		<div id="header-top">
 			<div id="logo">
