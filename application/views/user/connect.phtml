@@ -95,14 +95,21 @@ function verifSubmitC(f)
 			   url: "http://localhost/projetB3/users/connect",
 			   data: "mail_connect="+$("#mail_connect").val()+"&password_connect="+$("#password_connect").val(),
 			   success: function(msg){
-					if(msg==1)
+					if(msg==0)
 					{
-						$("#notif_connect").html("<span id=\"confirmMsg\">Vous &ecirc;tes maintenant connect&eacute;.</span>");
+                  $("#notif_connect").html("Login ou mot de passe incorrect");
+						
 						
 					}
+               else if(msg==2) {
+                  $("#notif_connect").html("Compte en attente de validation");
+               }
+               else if(msg==3) {
+                  $("#notif_connect").html("Compte banni.");
+               }
 					else
 					{
-						$("#notif_connect").html("<img src=\"bomb.png\" style=\"float:left;\" />&nbsp;Erreur lors de la connexion, veuillez v&eacute;rifier votre login et votre mot de passe.");
+						$("#notif_connect").html("Connexion Réussie !");
 					}
 			   }
 			});
