@@ -1,6 +1,6 @@
 <?php
 
-loadXMLFile("http://localhost/projetB3/?controller=vehicule&action=index&type=3");
+loadXMLFile("http://www.josealbea.com/projetB3/webservice/?controller=vehicule&action=index&type=3");
 
 function loadXMLFile($url) 
 {
