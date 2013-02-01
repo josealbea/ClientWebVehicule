@@ -1,6 +1,5 @@
 <h1>Formulaire de contact</h1>
-<div id="erreurnom"></div>
-<div id="erreurprenom"></div>
+<div id="erreurnomi"></div>
 <div id="erreurmail"></div>
 <div id="erreursujet"></div>
 <div id="erreurmessage"></div>
@@ -8,11 +7,9 @@
 	Si vous avez des questions, des suggestions ou tout autre problème, n'hésitez pas a utiliser notre formulaire de contact ci-dessous.
 </p>
 <div id="contact_form">
-	<form action="" id="form1">
-		<label for="nom">Votre nom</label>
-		<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
-		<label for="prenom">Votre prénom</label>
-		<input type="text" name="prenom" id="prenom" placeholder="Ex : Jean"/>
+	<form action="" method="post" id="form3" name="form3" class="form3">
+		<label for="nomi">Votre nom et prénom</label>
+		<input type="text" name="nom" id="nomi" placeholder="Ex : Dupont Jean"/>
 		<label for="mail">Votre adresse mail</label>
 		<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
 		<label for="sujet">Sujet du message</label>
@@ -35,17 +32,13 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-   $('#form1')
+   $('#form3')
       .bind('submit',function(event) {
-      return verifSubmit(form1);
+      return verifSubmitco(form3);
    });
-    $('#nom')
+    $('#nomi')
       .bind('blur',function(event) {
-      verifNom();
-     });
-	$('#prenom')
-      .bind('blur',function(event) {
-      verifPrenom();
+      verifNomi();
      });
     $('#mail')
       .bind('blur',function(event) {
@@ -61,38 +54,20 @@ $(function(){
      });
 });
 
-function verifNom()
+function verifNomi()
 {
-   var champ = document.getElementById("nom");
+   var champ = document.getElementById("nomi");
 
    if(champ.value.length < 1)
    {
     surligne(champ, true);
-	  document.getElementById("erreurnom").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+	  document.getElementById("erreurnomi").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
 	  return false;
    }
    else
    {
       surligne(champ, false);
-      document.getElementById("erreurnom").innerHTML="";
-      return true;
-   }
-}
-
-function verifPrenom()
-{
-   var champ = document.getElementById("prenom");
-
-   if(champ.value.length < 1)
-   {
-    surligne(champ, true);
-	  document.getElementById("erreurprenom").innerHTML="<div class='notif error'>Le prénom est obligatoire</div>";
-	  return false;
-   }
-   else
-   {
-      surligne(champ, false);
-      document.getElementById("erreurdescription").innerHTML="";
+      document.getElementById("erreurnomi").innerHTML="";
       return true;
    }
 }
@@ -162,16 +137,16 @@ function verifMessage()
 
 
 
-function verifSubmit(f) 
+function verifSubmitco(f) 
 {
-   var nomOk = verifNom();
-   var prenomOk = verifPrenom();
+   var nomiOk = verifNomi();
    var mailOk = verifMail();
    var sujetOk = verifSujet();
    var messageOk = verifMessage();
    
-   if(nomOk && prenomOk && mailOk && sujetOk && messageOk)
+   if(nomiOk && mailOk && sujetOk && messageOk) {
       return true;
+    }
    else
    {
       alert("Veuillez remplir correctement tous les champs");

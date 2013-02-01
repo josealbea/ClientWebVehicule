@@ -1,16 +1,15 @@
-<div id="erreurmail"></div>
-<div id="erreurpassword"></div>
-<div id="erreurnom"></div>
-<div id="erreurprenom"></div>
+<div id="erreurmaili"></div>
+<div id="erreurpasswordi"></div>
+<div id="erreurnomi"></div>
 <div id="erreurville"></div>
 <div id="erreurtel"></div>
 	<form action="" method="post" name="form1" id="form1" class="form1">
-		<label for="mail">Votre adresse mail</label>
-		<input type="text" id="mail" name="mail" placeholder="Ex : jean.dupont@achetervehicule.com"/>
-		<label for="password">Mot de passe</label>
-		<input type="password" name="password" id="password"/>
-	<label for="nom">Votre nom et prénom</label>
-	<input type="text" name="nom" id="nom" placeholder="Ex : Dupont"/>
+		<label for="mail_inscript">Votre adresse mail</label>
+		<input type="text" id="mail_inscript" name="mail_inscript" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+		<label for="password_inscript">Mot de passe</label>
+		<input type="password" name="password_inscript" id="password_inscript"/>
+	<label for="nom_inscript">Votre nom et prénom</label>
+	<input type="text" name="nom" id="nom_inscript" placeholder="Ex : Dupont"/>
 	<label for="ville">Votre ville</label>
 	<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
 	<input type="hidden" name="cp" id="cp"/>
@@ -31,13 +30,13 @@ $(function(){
       .bind('submit',function(event) {
       return verifSubmit(form1);
    });
-	$('#mail')
+	$('#mail_inscript')
       .bind('blur',function(event) {
-      verifMail();
+      verifMailI();
    });
-   $('#password')
+   $('#password_inscript')
       .bind('blur',function(event) {
-      verifPasswordEmpty();
+      verifPasswordEmptyi();
    });
    $('#nom')
       .bind('blur',function(event) {
@@ -53,62 +52,62 @@ $(function(){
    });
 });
 
-function verifMail()
+function verifMailI()
 {
-   var champ = document.getElementById("mail");
+   var champ = document.getElementById("mail_inscript");
    var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
 
    if(champ.value.length < 1)
    {
     surligne(champ, true);
-	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+	  document.getElementById("erreurmaili").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
 	  return false;
    }
    else if(!regMailExpression.test(champ.value)) {
    	  surligne(champ,true);
-   	  document.getElementById("erreurmail").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
+   	  document.getElementById("erreurmaili").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
    	  return false;
    }
    else
    {
       surligne(champ, false);
-      document.getElementById("erreurmail").innerHTML="";
+      document.getElementById("erreurmaili").innerHTML="";
       return true;
    }
 }
 
-function verifPasswordEmpty()
+function verifPasswordEmptyi()
 {
-   var password = document.getElementById("password");
+   var password = document.getElementById("password_inscript");
 
    if(password.value.length < 1)
    {
      surligne(password, true);
-     document.getElementById("erreurpassword").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
+     document.getElementById("erreurpasswordi").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
      return false;
    }
    else
    {
       surligne(password, false);
-      document.getElementById("erreurpassword").innerHTML="";
+      document.getElementById("erreurpasswordi").innerHTML="";
       return true;
    }
 }
 
 function verifNomEmpty()
 {
-   var nom = document.getElementById("nom");
+   var nom = document.getElementById("nom_inscript");
 
    if(nom.value.length < 1)
    {
      surligne(nom, true);
-     document.getElementById("erreurnom").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+     document.getElementById("erreurnomc").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
      return false;
    }
    else
    {
       surligne(nom, false);
-      document.getElementById("erreurnom").innerHTML="";
+      document.getElementById("erreurnomc").innerHTML="";
       return true;
    }
 }
@@ -157,8 +156,8 @@ function verifTelephoneEmpty()
 
 function verifSubmit(f) 
 {
-   var mailOk = verifMail();
-   var mdpOk = verifPasswordEmpty();
+   var mailOk = verifMailI();
+   var mdpOk = verifPasswordEmptyi();
    var nomOk = verifNomEmpty();
    var villeOk = verifVilleEmpty();
    var telOk = verifTelephoneEmpty();
