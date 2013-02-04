@@ -907,8 +907,7 @@ td {
 
 /** CONTACT FORM **/
 select#categorie{
-	padding: 4px 6px;
-	margin-left: 10px;
+	margin-left: 7px;
 }
 #mid_left label{
 	margin-left: 3px;
@@ -997,7 +996,7 @@ input[type=submit] {
 
 #plan_contact {
 	float: right;
-    height: 330px;
+    height: 340px;
     width: 466px;
 
 }
