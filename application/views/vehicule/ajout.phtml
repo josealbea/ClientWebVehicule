@@ -16,9 +16,9 @@
 		<textarea name="description" id="description"></textarea>
 		<label>Votre catégorie :</label>
 		<select name="categorie" id="categorie">
-			<option value="1">voiture</option>
-			<option value="2">moto</option>
-			<option value="3">scooter</option>
+			<option value="1" id="voiture">voiture</option>
+			<option value="2" id="moto">moto</option>
+			<option value="3" id="scooter">scooter</option>
 		</select>
 		<label>Votre photo:</label>
 		<input type="file" multiple name="photo" value="" id="photo">
@@ -37,6 +37,7 @@
       <option value="gpl">GPL</option>
       <option value="electrique">Electrique</option>
     </select>
+    <div id="show_voiture">
 		<label>Boite de vitesse :</label>
     <select name="boite_vitesse" id="boite_vitesse">
       <option value="automatique">Automatique</option>
