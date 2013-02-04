@@ -95,7 +95,6 @@ h3 {
 }
 
 #menu-user {
-	width: 200px;
 	float:right;
 	text-align:right;
 }
@@ -1062,4 +1061,16 @@ input[type=submit] {
 #mid_right {
 	float: right;
 	width: 50%;
+}
+
+/*************** HEADER *********************/
+
+#connect_box {
+	display: inline-block;
+	float:right;
+	color: #FFFFFF;
+}
+
+#connect_box a {
+	display: inline-block;
 }

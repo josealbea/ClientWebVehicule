@@ -1,4 +1,5 @@
 <?php 
+session_start();
 
 connect();
 
@@ -17,7 +18,20 @@ function connect() {
 		    echo curl_error($ch);
 		}
 		else {
-			echo "1";
+			$ses = json_decode($ret, true);
+			if ($ses['statut'] == "1") {
+				echo "1";
+			}
+			else if($ses['statut'] == "2") {
+				echo "2";
+			}
+			else {
+				echo "3";
+			}
+			$_SESSION['mail'] = $ses['mail'];
+			$_SESSION['cp'] = $ses['code_postal'];
+			$_SESSION['type'] = $ses['type'];
+			$_SESSION['id_membre'] = $ses['id_membre'];
 		}
 		curl_close($ch);
 	}

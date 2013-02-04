@@ -92,7 +92,7 @@ function verifSubmitC(f)
    if (success == 1) {					 
 			$.ajax({
 			   type: "POST",
-			   url: "http://localhost/projetB3/users/connect",
+			   url: "http://localhost/ClientWebVehicule/connect.php",
 			   data: "mail_connect="+$("#mail_connect").val()+"&password_connect="+$("#password_connect").val(),
 			   success: function(msg){
 					if(msg==0)
@@ -119,7 +119,7 @@ function verifSubmitC(f)
 }
 
 function redirectOk() {
-   window.location.href('http://localhost/ClientWebVehicule/');
-   setTimeout("redirectOk()",1000);
+   window.location.href = 'http://localhost/ClientWebVehicule/';
+   setTimeout("redirectOk()",3000);
 }
 </script>
