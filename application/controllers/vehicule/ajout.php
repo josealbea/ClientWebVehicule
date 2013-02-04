@@ -24,6 +24,9 @@ function ajoutAnnonce() {
 		if (!$ret) {
 		    echo curl_error($ch);
 		}
+		else {
+			return $succes = "<div class='notif success'>L'annonce a été postée avec succès</div>";
+		}
 		curl_close($ch);
 	}
 }
