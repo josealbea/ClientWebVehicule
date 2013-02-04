@@ -12,9 +12,9 @@
 		<textarea name="description" id="description"></textarea>
 		<label>Votre catégorie :</label>
 		<select name="categorie" id="categorie">
-			<option id="voiture">voiture</option>
-			<option id="moto">moto</option>
-			<option id="scooter">scooter</option>
+			<option value="1">voiture</option>
+			<option value="2">moto</option>
+			<option value="3">scooter</option>
 		</select>
 		<label>Votre photo:</label>
 		<input type="file" multiple name="photo" value="" id="photo">
@@ -22,13 +22,22 @@
 	<div id="mid_right">
 		<label>Votre prix :</label>
 		<input type="text" name="prix" placeholder="Ex: 2000" id="prix">
+    <label>Kilomètres:</label>
+    <input type="text" name="km" placeholder="Ex: 210 000" id="km">
 		<label>Votre  année:</label>
 		<input type="text" name="annee" placeholder="Ex: 2012" id="annee">
 		<label>Votre energie :</label>
-		<input type="text" name="energie" placeholder="Ex: diesel" id="energie">
-		<div id="show_voiture">
+    <select name="energie" id="energie">
+      <option value="essence">Essence</option>
+      <option value="diesel">Diesel</option>
+      <option value="gpl">GPL</option>
+      <option value="electrique">Electrique</option>
+    </select>
 		<label>Boite de vitesse :</label>
-		<input type="text" name="boite_vitesse" placeholder="Ex: automatique" id="boite_vitesse">
+    <select name="boite_vitesse" id="boite_vitesse">
+      <option value="automatique">Automatique</option>
+      <option value="manuelle">Manuelle</option>
+    </select>
 		<label>Nombre deplaces :</label>
 		<input type="text" name="nb_places" placeholder="Ex: 5" id="nb_places">
 		</div>
