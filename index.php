@@ -109,6 +109,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<tr>
 					<td class="choix_vehicule_td">Type de véhicule :</td>
 					<td>Boite de vitesse :</td>
+					<td>Kilométrage :</td>
 					
 				</tr>
 				<tr>
@@ -133,6 +134,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	        			    <input type="radio" name="energie1" value="Electrique" id="energie4" class="radioSlider" style="">
 	        			    <label for="energie4">Electrique</label>
 		    		    </div>
+					</td>
+					<td>
+						<input type="text" id="km" name="km">
 					</td>
 					<td style="width: 180px;">
 						<input type="submit" value="Rechercher" style="margin-top: 0;" />
