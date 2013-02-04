@@ -1,12 +1,9 @@
 <h1>Déposer votre annonce</h1>
-<?php if (isset($succes)) {
-  echo $succes;
-}
-?>
 <div id="erreurtitre"></div>
 <div id="erreurdescription"></div>
 <div id="erreurprix"></div>
 <div id="erreurannee"></div>
+<div id="erreurkm"></div>
 <div id="erreurenergie"></div>
 <form action="" method="post" id="form1">
 	<div id="mid_left">
@@ -95,7 +92,11 @@ $(function(){
       .bind('blur',function(event) {
       verifPrix();
      });
-    $('#anee')
+    $('#annee')
+      .bind('blur',function(event) {
+      verifAnnee();
+     });
+    $('#km')
       .bind('blur',function(event) {
       verifAnnee();
      });
@@ -176,6 +177,23 @@ function verifAnnee()
       return true;
    }
 }
+function verifKm()
+{
+   var champ = document.getElementById("km");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+    document.getElementById("erreurkm").innerHTML="<div class='notif error'>Le kilométrage est obligatoire</div>";
+    return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurkm").innerHTML="";
+      return true;
+   }
+}
 function verifEnergie()
 {
    var champ = document.getElementById("energie");
@@ -202,9 +220,10 @@ function verifSubmit(f)
    var descriptionOk = verifDescription();
    var prixOk = verifPrix();
    var anneeOk = verifAnnee();
+   var kmOk = verifKm();
    var energieOk = verifEnergie();
    
-   if(titreOk && descriptionOk && prixOk && anneeOk && energieOk)
+   if(titreOk && descriptionOk && prixOk && anneeOk && kmOk && energieOk)
       return true;
    else
    {
