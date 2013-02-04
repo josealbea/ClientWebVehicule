@@ -1,21 +1,23 @@
-<?php
+ <?php 
 
-loadXMLFile();
+recherche();
 
-function loadXMLFile() 
-{
-	global $vehicules;
-	var_dump($_GET);exit;
-	$url = "http://achetervehicule.com/webservice/?controller=vehicule&action=index&type=".$_GET['type']."&recherche=".$_GET['recherche']."&cp=".$_GET['cp']."&annee=".$_GET['annee']."&boite_vitesse=".$_GET['boite']."&energie=".$_GET['energie'];
-	echo $url;exit;
-	$ch = curl_init();
-	curl_setopt($ch, CURLOPT_URL, $url);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$result = utf8_decode(curl_exec($ch));
-	curl_close($ch);
-	$annonces = new DOMDocument();
-	$annonces->loadXML($result);
-	$vehicules=$annonces->getElementsByTagName("vehicule");
+// modifier cette page ::
 
-	return $vehicules;
+function recherche() {
+	$curl = curl_init($service_url);
+	if (!empty($_POST)) {
+		$formData = $_POST;
+		$vars="recherche=".$formData['recherche']."&description=".$formData['description']."&anee=".$formData['annee']."&departement=".$formData['departement']."&vehicule1=".$formData['energie1'];
+		//echo $vars;
+		$ch=curl_init('http://localhost/projetB3/vehicule/recherche');
+		curl_setopt($ch,CURLOPT_POST, true);
+		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
+		$ret = curl_exec($ch);
+		if (!$ret) {
+		    echo curl_error($ch);
+		}
+		curl_close($ch);
+	}
 }

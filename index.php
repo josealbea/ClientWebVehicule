@@ -109,37 +109,28 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<tr>
 					<td class="choix_vehicule_td">Type de véhicule :</td>
 					<td>Boite de vitesse :</td>
-					<td>Energie :</td>
+					
 				</tr>
 				<tr>
 					<td class="choix_vehicule_td">
 						<div class="choix_vehicule">
-		        			<input type="radio" name="type" value="1" id="type1" class="radioSlider" style="">
+		        			<input type="radio" name="vehicule1" value="1" id="type1" class="radioSlider" style="">
 	        			    <label for="type1">Voiture</label>
-	        			    <input type="radio" name="type" value="2" id="type2" class="radioSlider" style="">
+	        			    <input type="radio" name="vehicuke1" value="2" id="type2" class="radioSlider" style="">
 	        			    <label for="type2">Moto</label>
-	        			    <input type="radio" name="type" value="3" id="type3" class="radioSlider" style="">
+	        			    <input type="radio" name="vehicule1" value="3" id="type3" class="radioSlider" style="">
 	        			    <label for="type3">Scooter</label>
 		    		    </div>
-					</td>
-					<td>
-						<div class="choix_boite">
-		        			<input type="radio" name="boite" value="Manuelle" id="boite1" class="radioSlider" style="">
-	        			    <label for="boite1">Manuelle</label>
-	        			    <input type="radio" name="boite" value="Automatique" id="boite2" class="radioSlider" style="">
-	        			    <label for="boite2">Automatique</label>
-		    		    </div>
-		    		</td>
 					</td>
 					<td>
 						<div class="choix_energie">
 		        			<input type="radio" name="energie" value="Diesel" id="energie1" class="radioSlider" style="">
 	        			    <label for="energie1">Diesel</label>
-	        			    <input type="radio" name="type" value="Essence" id="energie2" class="radioSlider" style="">
+	        			    <input type="radio" name="energie1" value="Essence" id="energie2" class="radioSlider" style="">
 	        			    <label for="energie2">Essence</label>
-	        			    <input type="radio" name="type" value="GPL" id="energie3" class="radioSlider" style="">
+	        			    <input type="radio" name="energie1" value="GPL" id="energie3" class="radioSlider" style="">
 	        			    <label for="energie3">GPL</label>
-	        			    <input type="radio" name="type" value="Electrique" id="energie4" class="radioSlider" style="">
+	        			    <input type="radio" name="energie1" value="Electrique" id="energie4" class="radioSlider" style="">
 	        			    <label for="energie4">Electrique</label>
 		    		    </div>
 					</td>
