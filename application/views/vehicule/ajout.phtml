@@ -5,7 +5,7 @@
 <div id="erreurannee"></div>
 <div id="erreurkm"></div>
 <div id="erreurenergie"></div>
-<form action="" method="post" id="form1">
+<form action="" method="post" id="form2">
 	<div id="mid_left">
 		<label>Votre titre :</label>
 		<input type="text" name="titre" placeholder="Ex: Peugeot 206 noir"id="titre">
@@ -76,9 +76,9 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-   $('#form1')
+   $('#form2')
       .bind('submit',function(event) {
-      return verifSubmit(form1);
+      return verifSubmit2(form2);
    });
     $('#titre')
       .bind('blur',function(event) {
@@ -214,7 +214,7 @@ function verifEnergie()
 
 
 
-function verifSubmit(f) 
+function verifSubmit2(f) 
 {
    var titreOk = verifTitre();
    var descriptionOk = verifDescription();
@@ -223,8 +223,9 @@ function verifSubmit(f)
    var kmOk = verifKm();
    var energieOk = verifEnergie();
    
-   if(titreOk && descriptionOk && prixOk && anneeOk && kmOk && energieOk)
+   if(titreOk && descriptionOk && prixOk && anneeOk && kmOk && energieOk){
       return true;
+    }
    else
    {
       alert("Veuillez remplir correctement tous les champs");
