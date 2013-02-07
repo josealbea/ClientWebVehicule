@@ -934,6 +934,7 @@ label {
 	float: left;
 	font-size: 13px;
 	line-height: 43px ;
+	clear: both; /* laisse le gamin mdr */
 }
 
 input, textarea {

@@ -1,21 +1,21 @@
-<div id="erreurmaili"></div>
-<div id="erreurpasswordi"></div>
-<div id="erreurnomi"></div>
-<div id="erreurville"></div>
-<div id="erreurtel"></div>
-	<form action="" method="post" name="form1" id="form1" class="form1">
+<div id="erreurmail3"></div>
+<div id="erreurpassword3"></div>
+<div id="erreurnom3"></div>
+<div id="erreurville3"></div>
+<div id="erreurtel3"></div>
+	<form action="" method="post" name="form3" id="form3" class="form3">
 		<label for="mail_inscript">Votre adresse mail</label>
-		<input type="text" id="mail_inscript" name="mail_inscript" placeholder="Ex : jean.dupont@achetervehicule.com"/>
+		<input type="text" id="mail_inscript3" name="mail_inscript3" placeholder="Ex : jean.dupont@achetervehicule.com"/>
 		<label for="password_inscript">Mot de passe</label>
-		<input type="password" name="password_inscript" id="password_inscript"/>
+		<input type="password" name="password_inscript3" id="password_inscript3"/>
 	<label for="nom_inscript">Votre nom et prénom</label>
-	<input type="text" name="nom" id="nom_inscript" placeholder="Ex : Dupont"/>
+	<input type="text" name="nom3" id="nom3" placeholder="Ex : Dupont"/>
 	<label for="ville">Votre ville</label>
-	<input type="text" name="ville" id="ville" placeholder="Ex : Paris"/>
-	<input type="hidden" name="cp" id="cp"/>
+	<input type="text" name="ville3" id="ville3" placeholder="Ex : Paris"/>
+	<input type="hidden" name="cp3" id="cp3"/>
 	<label for="tel">Votre téléphone</label>
-	<input type="text" name="tel" id="tel" placeholder="Ex : 061122334455"/>
-	<input id="inscription" type="submit" value="S'inscrire">
+	<input type="text" name="tel3" id="tel3" placeholder="Ex : 061122334455"/>
+	<input id="inscription3" name="inscription3" type="submit" value="S'inscrire">
 	</form>
 <script type="text/javascript">
 function surligne(champ, erreur)
@@ -26,144 +26,135 @@ function surligne(champ, erreur)
       champ.style.borderColor = "";
 }
 $(function(){ 
-   $('#form1')
+   $('#form3')
       .bind('submit',function(event) {
-      return verifSubmit(form1);
+      return verifSubmit3(form3);
    });
-	$('#mail_inscript')
+    $('#mail_inscript3')
       .bind('blur',function(event) {
-      verifMailI();
-   });
-   $('#password_inscript')
+      verifMail3();
+     });
+  $('#password_inscript3')
       .bind('blur',function(event) {
-      verifPasswordEmptyi();
-   });
-   $('#nom')
+      verifPassword3();
+     });
+    $('#nom3')
       .bind('blur',function(event) {
-      verifNomEmpty();
-   });
-   $('#ville')
+      verifNom3();
+     });
+    $('#ville3')
       .bind('blur',function(event) {
-      verifVilleEmpty();
-   });
-   $('#tel')
+      verifVille3();
+     });
+    $('#tel3')
       .bind('blur',function(event) {
-      verifTelephoneEmpty();
-   });
+      verifTel3();
+     });
 });
 
-function verifMailI()
+function verifMail3()
 {
-   var champ = document.getElementById("mail_inscript");
-   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+   var champ = document.getElementById("mail_inscript3");
 
    if(champ.value.length < 1)
    {
     surligne(champ, true);
-	  document.getElementById("erreurmaili").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
-	  return false;
-   }
-   else if(!regMailExpression.test(champ.value)) {
-   	  surligne(champ,true);
-   	  document.getElementById("erreurmaili").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
-   	  return false;
+    document.getElementById("erreurmail3").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+    return false;
    }
    else
    {
       surligne(champ, false);
-      document.getElementById("erreurmaili").innerHTML="";
+      document.getElementById("erreurmail3").innerHTML="";
       return true;
    }
 }
 
-function verifPasswordEmptyi()
+function verifPassword3()
 {
-   var password = document.getElementById("password_inscript");
+   var champ = document.getElementById("password_inscript3");
 
-   if(password.value.length < 1)
+   if(champ.value.length < 1)
    {
-     surligne(password, true);
-     document.getElementById("erreurpasswordi").innerHTML="<div class='notif error'>Le mot de passe est obligatoire</div>";
-     return false;
+    surligne(champ, true);
+    document.getElementById("erreurpassword3").innerHTML="<div class='notif error'>Le password est obligatoire</div>";
+    return false;
    }
    else
    {
-      surligne(password, false);
-      document.getElementById("erreurpasswordi").innerHTML="";
+      surligne(champ, false);
+      document.getElementById("erreurpassword3").innerHTML="";
       return true;
    }
 }
 
-function verifNomEmpty()
+function verifNom3()
 {
-   var nom = document.getElementById("nom_inscript");
+   var champ = document.getElementById("nom3");
 
-   if(nom.value.length < 1)
+   if(champ.value.length < 1)
    {
-     surligne(nom, true);
-     document.getElementById("erreurnomc").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
-     return false;
+    surligne(champ, true);
+    document.getElementById("erreurnom3").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+    return false;
    }
    else
    {
-      surligne(nom, false);
-      document.getElementById("erreurnomc").innerHTML="";
+      surligne(champ, false);
+      document.getElementById("erreurnom3").innerHTML="";
       return true;
    }
 }
 
-function verifVilleEmpty()
+function verifVille3()
 {
-   var ville = document.getElementById("ville");
+   var champ = document.getElementById("ville3");
 
-   if(ville.value.length < 1)
+   if(champ.value.length < 1)
    {
-     surligne(ville, true);
-     document.getElementById("erreurville").innerHTML="<div class='notif error'>La ville est obligatoire</div>";
-     return false;
+    surligne(champ, true);
+    document.getElementById("erreurville3").innerHTML="<div class='notif error'>La ville est obligatoire</div>";
+    return false;
    }
    else
    {
-      surligne(ville, false);
-      document.getElementById("erreurville").innerHTML="";
+      surligne(champ, false);
+      document.getElementById("erreurville3").innerHTML="";
       return true;
    }
 }
-
-function verifTelephoneEmpty()
+function verifTel3()
 {
-   var tel = document.getElementById("tel");
-   var regMailExpression = /^[0-9]+$/;
+   var champ = document.getElementById("tel3");
 
-   if(tel.value.length < 1)
+   if(champ.value.length < 1)
    {
-     surligne(tel, true);
-     document.getElementById("erreurtel").innerHTML="<div class='notif error'>Le téléphone est obligatoire</div>";
-     return false;
-   }
-   else if(!regMailExpression.test(tel.value)) {
-      surligne(tel,true);
-      document.getElementById("erreurtel").innerHTML="<div class='notif error'>Le téléphone est invalide</div>";
-      return false;
+    surligne(champ, true);
+    document.getElementById("erreurtel3").innerHTML="<div class='notif error'>Le téléphone est obligatoire</div>";
+    return false;
    }
    else
    {
-      surligne(tel, false);
-      document.getElementById("erreurtel").innerHTML="";
+      surligne(champ, false);
+      document.getElementById("erreurtel3").innerHTML="";
       return true;
    }
 }
 
-function verifSubmit(f) 
+
+
+
+function verifSubmit3(f) 
 {
-   var mailOk = verifMailI();
-   var mdpOk = verifPasswordEmptyi();
-   var nomOk = verifNomEmpty();
-   var villeOk = verifVilleEmpty();
-   var telOk = verifTelephoneEmpty();
+   var mailOk3 = verifMail3();
+   var passwordOk3 = verifPassword3();
+   var nomOk3 = verifNom3();
+   var villeOk3 = verifVille3();
+   var telOk3 = verifTel3();
    
-   if(mailOk && mdpOk && nomOk && villeOk && telOk)
+   if(mailOk3 && passwordOk3 && nomOk3 && villeOk3 && telOk3){
       return true;
+    }
    else
    {
       alert("Veuillez remplir correctement tous les champs");
