@@ -10,7 +10,7 @@ function ajoutMembre() {
 	$curl = curl_init($service_url);
 	if (!empty($_POST)) {
 		$formData = $_POST;
-		$vars="password=".$formData['password']."&mail=".$formData['mail']."&nom=".$formData['nom']."&ville=".$formData['ville']."&code_postal=".$formData['cp'];
+		$vars="password=".$formData['password']."&mail=".$formData['mail']."&nom=".$formData['nom']."&ville=".$formData['ville']."&code_postal=".$formData['code_postal']."&telephone=".$formData['tel'];
 		// echo $vars;
 		$ch=curl_init('http://localhost/projetB3/users/index');
 		curl_setopt($ch,CURLOPT_POST, true);
