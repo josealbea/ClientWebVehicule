@@ -1,5 +1,4 @@
-<?php
-session_start(); 
+<?php 
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
 define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
@@ -66,7 +65,6 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<a href=""><img src="<?= PUBLIC_ROOT ?>img/logo.png" alt="Achetersonvehicule.com"></a>
 			</div>
 			<div id="menu-user">
-				<?php if (empty($_SESSION['id_membre'])) { ?>
 			    <div class="btn-group">
 			    <a href="#signin" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
@@ -74,10 +72,10 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			    <a href="<?= SITE_ROOT; ?>user/ajout" role="button" class="btn" data-toggle="modal">
 				    Inscription
 			    </a>
+				    <ul class="dropdown-menu">
+				    <!-- dropdown menu links -->
+				    </ul>
 			    </div>
-			    <?php } else { ?>
-			    <div id="connect_box">Bonjour <?= $_SESSION['mail']; ?> | <a href="<?= SITE_ROOT; ?>logout.php">Déconnexion</a></div>
-			    <?php } ?>
 			</div>
 		</div>
 		<div id="header-menu">
