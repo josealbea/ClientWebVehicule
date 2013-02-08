@@ -69,7 +69,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			    <a href="#signin" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
-			    <a href="<?= SITE_ROOT; ?>user/ajout" role="button" class="btn" data-toggle="modal">
+			    <a href="#signup" role="button" class="btn" data-toggle="modal">
 				    Inscription
 			    </a>
 				    <ul class="dropdown-menu">
@@ -155,7 +155,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	</div>
 <div id="footer">
 	<img src="<?= PUBLIC_ROOT ?>img/fb.png">
-	Copyright 2013 - Projet réalisé par Lucas Buisine, Yohann Teisseire et José Albea.
+	Copyright 2012 - Projet réalisé par Lucas Buisine, Yohann Teisseire et José Albea.
 	<img src="<?= PUBLIC_ROOT ?>img/twitter.png">
 </div>
 <div id="signin" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
@@ -173,6 +173,10 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	<div class="modal-header">
 		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
 		<h3 id="myModalLabel2">Inscription </h3>
+	</div>
+	<div class="modal-body">
+		<?php require APPLICATION_PATH.'controllers/user/ajout.php'; ?>
+		<?php require APPLICATION_PATH.'views/user/ajout.phtml'; ?>
 	</div>
 <script type="text/javascript">
 	$('#type1').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Voiture");});

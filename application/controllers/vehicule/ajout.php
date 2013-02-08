@@ -2,37 +2,12 @@
 
 ajoutAnnonce();
 
+// modifier cette page ::
+
 function ajoutAnnonce() {
 	$curl = curl_init($service_url);
 	if (!empty($_POST)) {
-
-		// UPLOAD D'IMAGE
-		$fichier = $_FILES['photo'];
-		$photo = $fichier['tmp_name']; 
-		$nom_image = $fichier['name'];
-		$ext = strtolower(substr(strrchr($nom_image,'.'),1));
-    	$ext_aut = array('jpg','jpeg','png','gif');
-    	$valid = (!check_extension($ext,$ext_aut)) ? false : true;
-    	$erreur = (!check_extension($ext,$ext_aut)) ? 'Veuillez charger une image' : '';
-    	if($valid)
-	    {
-	        $max_size = 2000000;
-	        if($fichier['size']>$max_size)
-	        {
-	            $valid = false;
-	            $erreur = 'Fichier trop gros';
-	        }
-	    }
-	    
-	    if($valid)
-	    {
-	        if($fichier['error']>0)
-	        {
-	            $valid = false;
-	            $erreur = 'Erreur lors du transfert';
-	        }
-	    }
-    	// FIN UPLOAD D'IMAGE
+		var_dump($_FILES);exit;
 		$formData = $_POST;
 		if($formData['categorie'] == 1){
 			$vehicule = "&boite_vitesse=".$formData['boite_vitesse']."&nb_places=".$formData['nb_places'];
@@ -40,22 +15,9 @@ function ajoutAnnonce() {
 		else{
 			$vehicule = "cylindree=".$formData['cylindree'];
 		}
-		$vars = array(
-			"titre" => $formData['titre'],
-			"description" => $formData['description'],
-			"prix" => $formData['prix'],
-			"annee" => $formData['annee'],
-			"km" => $formData['km'],
-			"energie" => $formData['energie'],
-			"id_categorie" => $formData['categorie'].$vehicule,
-			"image" => $photo,
-			"nom_image" => $nom_image,
-			"ext" => $ext,
-			"id_membre" => $_SESSION['id_membre'],
-			"accept" => 'on',
-		);
-		//var_dump($vars);exit;
-		$ch=curl_init('http://api.achetervehicule.com/?controller=vehicule&action=index');
+		$vars="titre=".$formData['titre']."&description=".$formData['description']."&prix=".$formData['prix']."&annee=".$formData['annee']."&km=".$formData['km']."&energie=".$formData['energie']."&id_categorie=".$formData['categorie'].$vehicule;
+		//echo $vars;
+		$ch=curl_init('http://localhost/projetB3/vehicule/index');
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -69,11 +31,3 @@ function ajoutAnnonce() {
 		curl_close($ch);
 	}
 }
-    
-    function check_extension($ext,$ext_aut)
-    {
-        if(in_array($ext,$ext_aut))
-        {
-            return true;
-        }
-    }

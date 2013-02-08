@@ -98,7 +98,7 @@ $(function(){
      });
     $('#km')
       .bind('blur',function(event) {
-      verifKm();
+      verifAnnee();
      });
      $('#energie')
       .bind('blur',function(event) {
@@ -220,7 +220,7 @@ function verifSubmit(f)
    var descriptionOk = verifDescription();
    var prixOk = verifPrix();
    var anneeOk = verifAnnee();
-   //var kmOk = verifKm();
+   var kmOk = verifKm();
    var energieOk = verifEnergie();
    
    if(titreOk && descriptionOk && prixOk && anneeOk && kmOk && energieOk)
