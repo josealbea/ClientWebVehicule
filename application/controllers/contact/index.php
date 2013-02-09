@@ -5,7 +5,7 @@ if (!empty($_POST)) {
 }
 
 function envoi_mail() {
-	$to  = $mail;
+	$to  = "jose.albea@gmail.com";
     $subject = $_POST['sujet'].' - '.SITE_NAME;
     $message = '
     <html>
