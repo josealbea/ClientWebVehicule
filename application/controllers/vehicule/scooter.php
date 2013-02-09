@@ -16,3 +16,4 @@ function loadXMLFile($url)
 
 	return $vehicules;
 }
+
