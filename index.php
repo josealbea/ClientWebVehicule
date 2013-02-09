@@ -1,5 +1,6 @@
 <?php
 session_start(); 
+//$_SESSION['id_membre'] = 4;
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
 define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
@@ -76,7 +77,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			    </a>
 			    </div>
 			    <?php } else { ?>
-			    <div id="connect_box">Bonjour <?= $_SESSION['mail']; ?> | <a href="<?= SITE_ROOT; ?>logout.php">Déconnexion</a></div>
+			    <div id="connect_box"><a href="<?= SITE_ROOT; ?>user/compte">Bonjour <?= $_SESSION['mail']; ?></a> | <a href="<?= SITE_ROOT; ?>logout.php">Déconnexion</a></div>
 			    <?php } ?>
 			</div>
 		</div>
@@ -88,6 +89,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<li><a href="<?= SITE_ROOT; ?>vehicule/moto"><img src="<?= PUBLIC_ROOT ?>img/icons/moto.png" /> Motos</a></li>
 				<li><a href="<?= SITE_ROOT; ?>contact/index"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/ajout"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Déposez une annonce</a></li>
+				<li><a href="<?= SITE_ROOT; ?>user/compte"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Mon Compte</a></li>
 			</ul>
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
