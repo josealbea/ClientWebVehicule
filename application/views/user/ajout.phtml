@@ -1,7 +1,7 @@
 <div id="erreurmail3"></div>
 <div id="erreurpassword3"></div>
 <div id="erreurnom3"></div>
-<div id="erreurville3"></div>
+<div id="erreurcp3"></div>
 <div id="erreurtel3"></div>
 	<form action="" method="post" name="form3" id="form3" class="form3">
 		<label for="mail_inscript">Votre adresse mail</label>
@@ -10,9 +10,8 @@
 		<input type="password" name="password_inscript3" id="password_inscript3"/>
 	<label for="nom_inscript">Votre nom et prénom</label>
 	<input type="text" name="nom3" id="nom3" placeholder="Ex : Dupont"/>
-	<label for="ville">Votre ville</label>
-	<input type="text" name="ville3" id="ville3" placeholder="Ex : Paris"/>
-	<input type="hidden" name="cp3" id="cp3"/>
+	<label for="ville">Votre code postal</label>
+	<input type="text" name="cp3" id="cpi3" placeholder="Ex: 75016"/>
 	<label for="tel">Votre téléphone</label>
 	<input type="text" name="tel3" id="tel3" placeholder="Ex : 061122334455"/>
 	<input id="inscription3" name="inscription3" type="submit" value="S'inscrire">
@@ -42,9 +41,9 @@ $(function(){
       .bind('blur',function(event) {
       verifNom3();
      });
-    $('#ville3')
+    $('#cpi3')
       .bind('blur',function(event) {
-      verifVille3();
+      verifCp3();
      });
     $('#tel3')
       .bind('blur',function(event) {
@@ -106,20 +105,20 @@ function verifNom3()
    }
 }
 
-function verifVille3()
+function verifCp3()
 {
-   var champ = document.getElementById("ville3");
+   var champ = document.getElementById("cpi3");
 
    if(champ.value.length < 1)
    {
     surligne(champ, true);
-    document.getElementById("erreurville3").innerHTML="<div class='notif error'>La ville est obligatoire</div>";
+    document.getElementById("erreurcp3").innerHTML="<div class='notif error'>Le code postal est obligatoire</div>";
     return false;
    }
    else
    {
       surligne(champ, false);
-      document.getElementById("erreurville3").innerHTML="";
+      document.getElementById("erreurcp3").innerHTML="";
       return true;
    }
 }

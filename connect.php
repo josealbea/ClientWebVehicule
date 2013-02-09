@@ -25,8 +25,11 @@ function connect() {
 			else if($ses['statut'] == "2") {
 				echo "2";
 			}
-			else {
+			else if($ses['statut'] == "3") {
 				echo "3";
+			}
+			else {
+				echo "0";
 			}
 			$_SESSION['mail'] = $ses['mail'];
 			$_SESSION['cp'] = $ses['code_postal'];

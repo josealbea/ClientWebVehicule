@@ -8,7 +8,7 @@ $(function() {
     var cp_inscript = $( "#ville3" ).addresspicker({
         regionBias: "fr",
       elements: {
-        postal_code: '#cp'
+        postal_code: '#cpi3'
       }
     });
     
