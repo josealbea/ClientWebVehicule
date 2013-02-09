@@ -1,7 +1,7 @@
 <?php
 
-monCompte("http://localhost/projetB3/?controller=users&action=single&id=".$_SESSION['id_membre']);
-listerVehicule("http://localhost/projetB3/?controller=vehicule&action=index&id_membre=".$_SESSION['id_membre']);
+monCompte("http://api.achetervehicule.com/?controller=users&action=single&id=".$_SESSION['id_membre']);
+listerVehicule("http://api.achetervehicule.com/?controller=vehicule&action=index&id_membre=".$_SESSION['id_membre']);
 if(!empty($_POST)){
 	modifCompte();
 }

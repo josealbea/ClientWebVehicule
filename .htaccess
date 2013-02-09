@@ -1,5 +1,6 @@
-Options +FollowSymlinks
+Options +FollowSymLinks
 RewriteEngine On
+RewriteBase /
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteRule ^index.php [L]
 RewriteRule ^([a-z]+)\/([a-z]+)$ 	index.php?controller=$1&action=$2 [L]
