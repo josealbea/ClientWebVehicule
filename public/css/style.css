@@ -19,6 +19,26 @@ body {
 	margin-bottom:10px;
 }
 
+/** Mon compte */
+#compte_left, #compte_left_2{
+	width:30%;
+	float: left;
+}
+#compte_right{
+	width:70%;
+	float:right;
+}
+#compte_left label, #compte_left_2 label{
+	width:100% !important;
+	clear: both;
+}
+#compte_left input[type=text], #compte_left_2 input[type=text]{
+	width:90% !important;
+	clear: both;
+	float: left;
+}
+/** Fin mon compte */
+
 /** HEADING **/
 
 h1 {
@@ -920,11 +940,9 @@ margin-left: 10px;
 #form1 label{clear: both;}
 #connexionForm label{clear:both;}
 #content label {
-	width: 30%;
 	text-align:left;
 	float: left;
 	font-size: 13px;
-	line-height: 43px ;
 	clear:both;
 }
 label {

@@ -1,7 +1,7 @@
 <?php foreach ($compte as $unCompte) {?>
 <h1>Mon compte</h1>
 <br />
-<div id="mid_left">
+<div id="compte_left">
 <h2>Mes informations</h2>
 <form action="" method="post" name="form3" id="form3" class="form3">
 	<label for="mail_inscript">Votre adresse mail</label>
@@ -16,11 +16,44 @@
 	<label for="tel">Votre téléphone</label>
 	<input type="text" name="tel3" id="tel3" value="<?= $unCompte->getAttribute("telephone"); ?>"/>
 	<input type="hidden" id="id_membre" name="id_membre"/>
-	<input id="inscription3" name="inscription3" type="submit" value="Modifier">
+	<input id="inscription3" name="inscription3" type="submit" value="valider">
+	</form>
+</div>
+<div id="compte_left_2">
+<h2>Mes informations</h2>
+<form action="" method="post" name="form3" id="form3" class="form3">
+	<p>Votre adresse mail :<?= $unCompte->getAttribute("mail"); ?> </p>
+	<p>Votre nom et prénom :<?= $unCompte->getAttribute("nom"); ?> </p>
+	<p>Votre code postal :<?= $unCompte->getAttribute("code_postal"); ?> </p>
+	<p>Votre téléphone :<?= $unCompte->getAttribute("telephone"); ?> </p>
+	<a hre="#" id="edit_btn">Modifier</a>
 	</form>
 </div>
 <?php } ?>
-<div id="mid_right">
+<div id="compte_right">
 <h2>Mes annonces</h2>
 
+
+<table>
+	<thead>
+		<td>Titre<td>
+		<td>Action</td>
+	</thead>
+	<?php foreach ($liste as $uneliste) { ?>
+	<tbody>
+		<td><?= $uneliste->getAttribute("titre"); ?><td>
+		<td><a href="?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
+	</tbody>
+<?php } ?>
+</table>
+ 
+
 </div>
+<script type="text/javascript">
+$('#compte_left').hide();
+
+$('#edit_btn').click(function() {
+	$('#compte_left_2').hide();
+	$('#compte_left').show();
+});
+</script>
