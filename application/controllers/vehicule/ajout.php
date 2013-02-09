@@ -42,6 +42,17 @@ function ajoutAnnonce() {
 		else{
 			$vehicule = "cylindree=".$formData['cylindree'];
 		}
+		if($formData['categorie'] == 1){
+			$vehicule = array(
+			"boite_vitesse" => $formData['boite_vitesse'],
+			"nb_places" => $formData['nb_places']
+			);
+			}
+			else{
+				$vehicule = array(
+				"cylindree" => $formData['cylindree']
+				);
+			}
 		$vars = array(
 			"titre" => $formData['titre'],
 			"description" => $formData['description'],
@@ -49,20 +60,15 @@ function ajoutAnnonce() {
 			"annee" => $formData['annee'],
 			"km" => $formData['km'],
 			"energie" => $formData['energie'],
-			"id_categorie" => $formData['categorie'].$vehicule,
-			if($formData['categorie'] == 1){
-			"boite_vitesse" => $formData['boite_vitesse'],
-			"nb_places" => $formData['nb_places'],
-			}
-			else{
-				"cylindree" => $formData['cylindree'],
-			}
+			"id_categorie" => $formData['categorie'],
 			"image" => $photo,
 			"nom_image" => $nom_image,
 			"ext" => $ext,
 			"id_membre" => $_SESSION['id_membre'],
 			"accept" => 'on',
 		);
+		$vars .= $vehicule;
+		var_dump($vars);exit;
 		$ch=curl_init('http://api.achetervehicule.com/?controller=vehicule&action=index');
 		//echo $vars;
 		curl_setopt($ch,CURLOPT_POST, true);
