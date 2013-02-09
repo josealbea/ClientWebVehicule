@@ -92,28 +92,34 @@ function verifSubmitC(f)
    if (success == 1) {					 
 			$.ajax({
 			   type: "POST",
-			   url: "http://localhost/projetB3/users/connect",
+			   url: "http://localhost/ClientWebVehicule/connect.php",
 			   data: "mail_connect="+$("#mail_connect").val()+"&password_connect="+$("#password_connect").val(),
 			   success: function(msg){
 					if(msg==0)
 					{
-                  $("#notif_connect").html("Login ou mot de passe incorrect");
+                  $("#notif_connect").html("<div class='notif error'>Login ou mot de passe incorrect</div>");
 						
 						
 					}
                else if(msg==2) {
-                  $("#notif_connect").html("Compte en attente de validation");
+                  $("#notif_connect").html("<div class='notif error'>Compte en attente de validation</div>");
                }
                else if(msg==3) {
-                  $("#notif_connect").html("Compte banni.");
+                  $("#notif_connect").html("<div class='notif error'>Compte banni.</div>");
                }
 					else
 					{
-						$("#notif_connect").html("Connexion Réussie !");
+						$("#notif_connect").html("<div class='notif success'>Connexion Réussie ! Redirection en cours...</div>");
+                  redirectOk();
 					}
 			   }
 			});
 			return false;
 	}
 }
+
+function redirectOk() {
+   window.location.href = 'http://localhost/ClientWebVehicule/';
+   setTimeout("redirectOk()",3000);
+} 
 </script>

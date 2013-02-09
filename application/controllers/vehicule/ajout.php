@@ -7,7 +7,7 @@ ajoutAnnonce();
 function ajoutAnnonce() {
 	$curl = curl_init($service_url);
 	if (!empty($_POST)) {
-		var_dump($_FILES);exit;
+		//var_dump($_FILES);exit;
 		$formData = $_POST;
 		if($formData['categorie'] == 1){
 			$vehicule = "&boite_vitesse=".$formData['boite_vitesse']."&nb_places=".$formData['nb_places'];
