@@ -1,10 +1,10 @@
 <?php 
 session_start();
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
-define("SITE_ROOT", "http://http://achetervehicule.com/");
+define("SITE_ROOT", "http://achetervehicule.com/");
 define("SITE_NAME", "Acheter véhicule");
 define("PUBLIC_ROOT", "http://achetervehicule.com/public/");
-
+header("Content-type: text/html");
 // PDO Connect
 //require APPLICATION_PATH.'configs/connect.php';
 
@@ -89,7 +89,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<li><a href="<?= SITE_ROOT; ?>vehicule/voiture"><img src="<?= PUBLIC_ROOT ?>img/icons/car.png" /> Voitures</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/scooter"><img src="<?= PUBLIC_ROOT ?>img/icons/scooter.png" /> Scooters</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/moto"><img src="<?= PUBLIC_ROOT ?>img/icons/moto.png" /> Motos</a></li>
-				<li><a href="<?= SITE_ROOT; ?>contact/index"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
+				<li><a href="<?= SITE_ROOT; ?>contact"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/ajout"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Déposez une annonce</a></li>
 				<li><a href="<?= SITE_ROOT; ?>user/compte"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Mon compte</a></li>
 			</ul>
