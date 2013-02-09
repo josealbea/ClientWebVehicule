@@ -92,7 +92,7 @@ function verifSubmitC(f)
    if (success == 1) {					 
 			$.ajax({
 			   type: "POST",
-			   url: "http://localhost/ClientWebVehicule/connect.php",
+			   url: "http://achetervehicule.com/connect.php",
 			   data: "mail_connect="+$("#mail_connect").val()+"&password_connect="+$("#password_connect").val(),
 			   success: function(msg){
 					if(msg==0)
@@ -119,7 +119,7 @@ function verifSubmitC(f)
 }
 
 function redirectOk() {
-   window.location.href = 'http://localhost/ClientWebVehicule/';
+   window.location.href = 'http://achetervehicule.com';
    setTimeout("redirectOk()",3000);
 } 
 </script>

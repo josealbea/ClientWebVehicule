@@ -32,7 +32,7 @@ $vars = array(
 	"code_postal" => $formData['cp'],
 	"telephone" => $formData['tel']
 	);
-$ch = curl_init("http://localhost/projetB3/?controller=users&action=single&id=".$_SESSION['id_membre']);
+$ch = curl_init("http://api.achetervehicule.com/?controller=users&action=single&id=".$_SESSION['id_membre']);
 curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "PUT");
 curl_setopt($ch, CURLOPT_POSTFIELDS,http_build_query($vars));
@@ -42,7 +42,7 @@ if(!$response) {
     return false;
 }
 else {
-	header('location: http://localhost/ClientWebVehicule/user/compte');
+	header('location: http://achetervehicule.com/user/compte');
 }
 
 }
@@ -61,12 +61,12 @@ else {
 }
  function deleteVehicule($id_vehicule){
  	$request_body = $id_vehicule;
-	$ch = curl_init('http://localhost/projetB3/?controller=vehicule&action=single&id='.$id_vehicule);
+	$ch = curl_init('http://api.achetervehicule.com/?controller=vehicule&action=single&id='.$id_vehicule);
     curl_setopt($ch, CURLOPT_POSTFIELDS, $request_body);
     curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
     curl_setopt($ch, CURLOPT_HEADER, 0);
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
     $response = curl_exec($ch);
-    header('location: http://localhost/ClientWebVehicule/user/compte');
+    header('location: http://www.achetervehicule.com/user/compte');
  }

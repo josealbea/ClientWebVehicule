@@ -12,7 +12,7 @@ function ajoutMembre() {
 		$formData = $_POST;
 		$vars="password=".$formData['password_inscript3']."&mail=".$formData['mail_inscript3']."&nom=".$formData['nom3']."&code_postal=".$formData['cp3']."&telephone=".$formData['tel3'];
 		//echo $vars;
-		$ch=curl_init('http://localhost/projetB3/users/index');
+		$ch=curl_init('http://api.achetervehicule.com/users/index');
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
