@@ -1,0 +1,26 @@
+<?php foreach ($compte as $unCompte) {?>
+<h1>Mon compte</h1>
+<br />
+<div id="mid_left">
+<h2>Mes informations</h2>
+<form action="" method="post" name="form3" id="form3" class="form3">
+	<label for="mail_inscript">Votre adresse mail</label>
+	<input type="text" id="mail_inscript3" name="mail_inscript3" value="<?= $unCompte->getAttribute("mail"); ?>"/>
+	<label for="nom_inscript">Votre nom et prénom</label>
+	<input type="text" name="nom3" id="nom3" value="<?= $unCompte->getAttribute("nom"); ?>"/>
+	<label for="ville">Votre ville</label>
+	<input type="text" name="ville3" id="ville3" value="<?= $unCompte->getAttribute("ville"); ?>"/>
+	<input type="hidden" name="cp3" id="cp3"/>
+	<label for="tel">Votre code postal</label>
+	<input type="text" name="cp3" id="cp3" value="<?= $unCompte->getAttribute("code_postal"); ?>"/>
+	<label for="tel">Votre téléphone</label>
+	<input type="text" name="tel3" id="tel3" value="<?= $unCompte->getAttribute("telephone"); ?>"/>
+	<input type="hidden" id="id_membre" name="id_membre"/>
+	<input id="inscription3" name="inscription3" type="submit" value="Modifier">
+	</form>
+</div>
+<?php } ?>
+<div id="mid_right">
+<h2>Mes annonces</h2>
+
+</div>
