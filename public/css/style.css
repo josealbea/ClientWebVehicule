@@ -21,12 +21,18 @@ body {
 
 /** Mon compte */
 #compte_left, #compte_left_2{
-	width:30%;
-	float: left;
+    float: left;
+    width: 29%;
 }
 #compte_right{
-	width:70%;
+	width:67%;
 	float:right;
+	border-left: 1px solid #ECECEC;
+	min-height: 300px;
+	padding-right: 20px;
+}
+#compte_right h2{
+	padding-left:10px;
 }
 #compte_left label, #compte_left_2 label{
 	width:100% !important;
@@ -36,6 +42,16 @@ body {
 	width:90% !important;
 	clear: both;
 	float: left;
+}
+#form3 a#edit_btn{
+	width: 150px;
+	background: linear-gradient(to bottom, #EE0036 0%, #ae252f 100%) repeat scroll 0 0 transparent;
+	border-radius:4px;
+	box-shadow: 0 2px 2px #000;
+	color: #fff;
+	font-weight: bold;
+	padding: 5px 11px;
+	text-shadow: 0 1px 1px #000;
 }
 /** Fin mon compte */
 
@@ -206,7 +222,7 @@ a#search_button, a:visited#search_button, a:link#search_button{
 
 table {
 	width: 100%;
-	margin: 0 auto;
+	margin-left: 20px;
 }
 
 table tr {
@@ -986,7 +1002,7 @@ textarea {
 }
 
 #content p {
-	padding: 10px 0;
+	padding: 5px 0;
 	font-size: 14px;
 }
 

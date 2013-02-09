@@ -68,7 +68,6 @@ function ajoutAnnonce() {
 			"accept" => 'on',
 		);
 		$vars .= $vehicule;
-		var_dump($vars);exit;
 		$ch=curl_init('http://api.achetervehicule.com/?controller=vehicule&action=index');
 		//echo $vars;
 		curl_setopt($ch,CURLOPT_POST, true);
