@@ -3,4 +3,4 @@ session_start();
 session_unset();
 session_destroy();
 
-header('location: http://achetervehicule.com');
+header('location: '.SITE_ROOT);

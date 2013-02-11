@@ -1,10 +1,10 @@
 <div id="gauche">
-	<h1>Les dernières motos postées</h1>
+	<h1>Résultat de la recherche : <?php echo $_GET['recherche']; ?></h1>
 	<?php foreach($vehicules as $vehicule) {
 	?>
 	<div class="annonce">
 		<div class="photo-annonce">
-			<img src="http://193.164.197.30/images/715/715227101405852.jpg" alt="">
+			<img src="http://193.164.197.60/images/471/471311012087222.jpg" alt="">
 		</div>
 		<div class="description-annonce">
 			<h2><a href="<?= SITE_ROOT; ?>vehicule/<?= $vehicule->getAttribute("id")."-".strtolower(str_replace(" ", "-", $vehicule->getAttribute("titre"))); ?>"><?= $vehicule->getAttribute("titre"); ?></a></h2>
@@ -23,7 +23,7 @@
 	<h1>Les plus vus</h1>
 	<div class="annonce">
 		<div class="photo-annonce">
-			<img src="http://193.164.197.30/images/715/715227101405852.jpg" alt="">
+			<img src="http://193.164.197.60/images/471/471311012087222.jpg" alt="">
 		</div>
 		<div class="description-annonce">
 			<h3>MERCEDES - CLASSE C 220 CDI - Avangarde</h3>

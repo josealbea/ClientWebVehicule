@@ -2,8 +2,13 @@
 session_start();
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
 define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
+define("API_ROOT", "http://localhost/projetB3/");
+define("PUBLIC_ROOT", "http://localhost/ClientWebVehicule/public/");
+//PROD
+//define("SITE_ROOT", "http://www.achetervehicule.com/");
+//define("API_ROOT", "http://api.achetervehicule.com/");
+//define("PUBLIC_ROOT", "http://www.achetervehicule.com/public/");
 define("SITE_NAME", "Acheter véhicule");
-define("PUBLIC_ROOT", "http://www.achetervehicule.com/public/");
 
 // PDO Connect
 //require APPLICATION_PATH.'configs/connect.php';
@@ -71,7 +76,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			    <a href="#signin" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
-			    <a href="#signup" role="button" class="btn" data-toggle="modal">
+			    <a href="<?= SITE_ROOT;?>user/ajout" class="btn">
 				    Inscription
 			    </a>
 				    <ul class="dropdown-menu">
@@ -90,13 +95,15 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<li><a href="<?= SITE_ROOT; ?>vehicule/scooter"><img src="<?= PUBLIC_ROOT ?>img/icons/scooter.png" /> Scooters</a></li>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/moto"><img src="<?= PUBLIC_ROOT ?>img/icons/moto.png" /> Motos</a></li>
 				<li><a href="<?= SITE_ROOT; ?>contact/index"><img src="<?= PUBLIC_ROOT ?>img/icons/contact.png" /> Contact</a></li>
+				<?php if (!empty($_SESSION['id_membre'])) { ?>
 				<li><a href="<?= SITE_ROOT; ?>vehicule/ajout"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Déposez une annonce</a></li>
 				<li><a href="<?= SITE_ROOT; ?>user/compte"><img src="<?= PUBLIC_ROOT ?>img/annonce.png" /> Mon compte</a></li>
+				<?php } ?>
 			</ul>
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
 		<div id="form-search" style="display:none;">
-		<form action="<?= SITE_ROOT; ?>vehicule/recherche" method="get">
+		<form action="<?= SITE_ROOT; ?>vehicule/recherche" method="POST">
 			<table>
 				<tr>
 					<td>Votre recherche : </td>
@@ -121,11 +128,11 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<tr>
 					<td class="choix_vehicule_td">
 						<div class="choix_vehicule">
-		        			<input type="radio" name="vehicule1" value="1" id="type1" class="radioSlider" style="">
+		        			<input type="radio" name="vehicule" value="1" id="type1" class="radioSlider" style="">
 	        			    <label for="type1">Voiture</label>
-	        			    <input type="radio" name="vehicuke1" value="2" id="type2" class="radioSlider" style="">
+	        			    <input type="radio" name="vehicule" value="2" id="type2" class="radioSlider" style="">
 	        			    <label for="type2">Moto</label>
-	        			    <input type="radio" name="vehicule1" value="3" id="type3" class="radioSlider" style="">
+	        			    <input type="radio" name="vehicule" value="3" id="type3" class="radioSlider" style="">
 	        			    <label for="type3">Scooter</label>
 		    		    </div>
 					</td>
@@ -133,11 +140,11 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 						<div class="choix_energie">
 		        			<input type="radio" name="energie" value="Diesel" id="energie1" class="radioSlider" style="">
 	        			    <label for="energie1">Diesel</label>
-	        			    <input type="radio" name="energie1" value="Essence" id="energie2" class="radioSlider" style="">
+	        			    <input type="radio" name="energie" value="Essence" id="energie2" class="radioSlider" style="">
 	        			    <label for="energie2">Essence</label>
-	        			    <input type="radio" name="energie1" value="GPL" id="energie3" class="radioSlider" style="">
+	        			    <input type="radio" name="energie" value="GPL" id="energie3" class="radioSlider" style="">
 	        			    <label for="energie3">GPL</label>
-	        			    <input type="radio" name="energie1" value="Electrique" id="energie4" class="radioSlider" style="">
+	        			    <input type="radio" name="energie" value="Electrique" id="energie4" class="radioSlider" style="">
 	        			    <label for="energie4">Electrique</label>
 		    		    </div>
 					</td>
@@ -145,6 +152,8 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 						<input type="text" id="km" name="km">
 					</td>
 					<td style="width: 180px;">
+						<input type="hidden" name="prix_min" id="amount" />
+						<input type="hidden" name="prix_max" id="prix_max" />
 						<input type="submit" value="Rechercher" style="margin-top: 0;" />
 					</td>
 				</tr>
@@ -174,16 +183,6 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		<?php require APPLICATION_PATH.'views/user/connect.phtml'; ?>
 	</div>
 </div>
-
-<div id="signup" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-	<div class="modal-header">
-		<button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
-		<h3 id="myModalLabel2">Inscription </h3>
-	</div>
-	<div class="modal-body">
-		<?php require APPLICATION_PATH.'controllers/user/ajout.php'; ?>
-		<?php require APPLICATION_PATH.'views/user/ajout.phtml'; ?>
-	</div>
 <script type="text/javascript">
 	$('#type1').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Voiture");});
 	$('#type2').click(function(){$('.choix_vehicule .radioSwitch-handle').html("Moto");});

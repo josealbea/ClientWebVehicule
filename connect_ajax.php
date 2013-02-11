@@ -9,7 +9,7 @@ function connect() {
 		$formData = $_POST;
 		$vars="mail_connect=".$formData['mail_connect']."&password_connect=".$formData['password_connect'];
 		//echo $vars;
-		$ch=curl_init('http://api.achetervehicule.com/?controller=users&action=connect');
+		$ch=curl_init(API_ROOT.'?controller=users&action=connect');
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

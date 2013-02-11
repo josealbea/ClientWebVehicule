@@ -278,6 +278,7 @@ table tr {
 	box-shadow: 1px 3px 5px 0px #656565;
 	filter:progid:DXImageTransform.Microsoft.Shadow(color=#656565, Direction=161, Strength=5);	
 	margin-top:10px;
+	margin: 0;
 }
 
 span#price_title {
@@ -967,7 +968,6 @@ label {
 	float: left;
 	font-size: 13px;
 	line-height: 43px ;
-	clear: both; /* laisse le gamin mdr */
 }
 
 input, textarea {

@@ -68,7 +68,7 @@ function ajoutAnnonce() {
 			"accept" => 'on',
 		);
 		$vars .= $vehicule;
-		$ch=curl_init('http://api.achetervehicule.com/?controller=vehicule&action=index');
+		$ch=curl_init(API_ROOT.'?controller=vehicule&action=index');
 		//echo $vars;
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
@@ -82,4 +82,12 @@ function ajoutAnnonce() {
 		}
 		curl_close($ch);
 	}
+}
+
+function check_extension($ext) {
+    $ext_aut = array('jpg','jpeg','png','gif');
+    if(in_array($ext,$ext_aut))
+    {
+        return true;
+    }
 }

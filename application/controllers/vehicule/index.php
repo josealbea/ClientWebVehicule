@@ -1,6 +1,6 @@
 <?php
 
-loadXMLFile("http://api.achetervehicule.com/?controller=vehicule&action=index",1);
+loadXMLFile(API_ROOT."?controller=vehicule&action=index",1);
 
 function loadXMLFile($url) 
 {
