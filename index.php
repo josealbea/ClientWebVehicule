@@ -1,7 +1,7 @@
 <?php 
 session_start();
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
-define("SITE_ROOT", "http://www.achetervehicule.com/");
+define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
 define("PUBLIC_ROOT", "http://www.achetervehicule.com/public/");
 
@@ -96,7 +96,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			<a href="javascript:void(0)" id="search_button" onClick="$('#form-search').slideToggle('fast')">Effectuer une recherche</a>
 		</div>
 		<div id="form-search" style="display:none;">
-		<form action="<?= SITE_ROOT; ?>vehicule/recherche" method="get">
+		<form action="<?= SITE_ROOT; ?>?controller=vehicule&action=recherche" method="post">
 			<table>
 				<tr>
 					<td>Votre recherche : </td>
@@ -114,6 +114,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				</tr>
 				<tr>
 					<td class="choix_vehicule_td">Type de véhicule :</td>
+					<td>Energie</td>
 					<td>Boite de vitesse :</td>
 					<td>Kilométrage :</td>
 					
@@ -131,7 +132,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					</td>
 					<td>
 						<div class="choix_energie">
-		        			<input type="radio" name="energie" value="Diesel" id="energie1" class="radioSlider" style="">
+		        			<input type="radio" name="energie1" value="Diesel" id="energie1" class="radioSlider" style="">
 	        			    <label for="energie1">Diesel</label>
 	        			    <input type="radio" name="energie1" value="Essence" id="energie2" class="radioSlider" style="">
 	        			    <label for="energie2">Essence</label>
@@ -139,6 +140,14 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 	        			    <label for="energie3">GPL</label>
 	        			    <input type="radio" name="energie1" value="Electrique" id="energie4" class="radioSlider" style="">
 	        			    <label for="energie4">Electrique</label>
+		    		    </div>
+					</td>
+					<td>
+						<div class="choix_boite">
+		        			<input type="radio" name="boite_vitesse" value="Automatique" id="boite1" class="radioSlider" style="">
+	        			    <label for="boite_vitesse1">Automatique</label>
+	        			    <input type="radio" name="boite_vitesse" value="Manuelle" id="boite2" class="radioSlider" style="">
+	        			    <label for="boite_vitesse2">Manuelle</label>	    
 		    		    </div>
 					</td>
 					<td>
