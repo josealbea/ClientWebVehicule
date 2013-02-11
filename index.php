@@ -1,7 +1,7 @@
 <?php 
 session_start();
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
-define("SITE_ROOT", "http://www.achetervehicule.com/");
+define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("SITE_NAME", "Acheter véhicule");
 define("PUBLIC_ROOT", "http://www.achetervehicule.com/public/");
 
