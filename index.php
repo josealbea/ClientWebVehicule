@@ -109,8 +109,8 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 				<tr>
 					<td>Votre recherche : </td>
 					<td><label for="amount" style="width:100%;">Votre budget : <span id="amount"></span></label></td>
-					<td>Année : </td>
-					<td>Votre département : </td>
+					<td><label for="annee">Année : </label></td>
+					<td><label for="departement">Votre département :</label> </td>
 				</tr>
 				<tr>
 					<td><input type="text" name="recherche" placeholder="Ex : Ferarri" /></td>
@@ -121,9 +121,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					<td><input type="text" name="departement" id="dep" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
-					<td class="choix_vehicule_td">Type de véhicule :</td>
-					<td>Boite de vitesse :</td>
-					<td>Kilométrage :</td>
+					<td class="choix_vehicule_td"><label for="type">"Type de véhicule :</label></td>
+					<td><label for="boite_vitesse">Boite de vitesse :</label></td>
+					<td><label for="km">Kilométrage :</label></td>
 					
 				</tr>
 				<tr>
