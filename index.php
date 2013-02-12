@@ -1,6 +1,5 @@
 <?php 
 session_start();
-$_SESSION['id_membre'] = 1;
 define("APPLICATION_PATH", dirname(__FILE__)."/application/");
 define("SITE_ROOT", "http://localhost/ClientWebVehicule/");
 define("API_ROOT", "http://localhost/projetB3/");
