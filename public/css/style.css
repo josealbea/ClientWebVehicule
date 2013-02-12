@@ -7,6 +7,13 @@ body {
 	font-family: "Roboto";
 }
 
+/* label de la recherche*/
+
+#form-search label{
+	width:124px;
+	line-height: 16px;
+}
+
 #global {
 	width: 80%;
 	max-width: 1015px;
