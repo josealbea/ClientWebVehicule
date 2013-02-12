@@ -1,3 +1,9 @@
+<?php if (isset($error)) {
+  echo $error;
+}
+else{
+  echo "aucune erreur";
+} ?>
 <div id="erreurmail3"></div>
 <div id="erreurpassword3"></div>
 <div id="erreurnom3"></div>
@@ -14,7 +20,7 @@
 	<input type="text" name="cp3" id="cpi3" placeholder="Ex: 75016"/>
 	<label for="tel">Votre téléphone</label>
 	<input type="text" name="tel3" id="tel3" placeholder="Ex : 061122334455"/>
-	<input id="inscription3" name="inscription3" type="submit" value="S'inscrire">
+	<input type="submit" value="S'inscrire">
 	</form>
 <script type="text/javascript">
 function surligne(champ, erreur)
@@ -148,10 +154,10 @@ function verifSubmit3(f)
    var mailOk3 = verifMail3();
    var passwordOk3 = verifPassword3();
    var nomOk3 = verifNom3();
-   var villeOk3 = verifVille3();
+   var cpOk3 = verifCp3();
    var telOk3 = verifTel3();
    
-   if(mailOk3 && passwordOk3 && nomOk3 && villeOk3 && telOk3){
+   if(mailOk3 && passwordOk3 && nomOk3 && cpOk3 && telOk3){
       return true;
     }
    else

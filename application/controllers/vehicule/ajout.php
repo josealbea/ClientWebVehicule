@@ -2,8 +2,6 @@
 
 ajoutAnnonce();
 
-// modifier cette page ::
-
 function ajoutAnnonce() {
 	$curl = curl_init($service_url);
 	if (!empty($_POST)) {
@@ -40,36 +38,11 @@ function ajoutAnnonce() {
 			$vehicule = "&boite_vitesse=".$formData['boite_vitesse']."&nb_places=".$formData['nb_places'];
 		}
 		else{
-			$vehicule = "cylindree=".$formData['cylindree'];
+			$vehicule = "&cylindree=".$formData['cylindree'];
 		}
-		if($formData['categorie'] == 1){
-			$vehicule = array(
-			"boite_vitesse" => $formData['boite_vitesse'],
-			"nb_places" => $formData['nb_places']
-			);
-			}
-			else{
-				$vehicule = array(
-				"cylindree" => $formData['cylindree']
-				);
-			}
-		$vars = array(
-			"titre" => $formData['titre'],
-			"description" => $formData['description'],
-			"prix" => $formData['prix'],
-			"annee" => $formData['annee'],
-			"km" => $formData['km'],
-			"energie" => $formData['energie'],
-			"id_categorie" => $formData['categorie'],
-			"image" => $photo,
-			"nom_image" => $nom_image,
-			"ext" => $ext,
-			"id_membre" => $_SESSION['id_membre'],
-			"accept" => 'on',
-		);
-		$vars .= $vehicule;
+		$vars = "titre=".$formData['titre']."&description=".$formData['description']."&prix=".$formData['prix']."&annee=".$formData['annee']."&km=".$formData['km']."&energie=".$formData['energie']."&id_categorie=".$formData['categorie']."&image=".$photo."&nom_image=".$nom_image."&ext=".$ext."&id_membre=".$_SESSION['id_membre']."&accept=on".$vehicule;
 		$ch=curl_init(API_ROOT.'?controller=vehicule&action=index');
-		//echo $vars;
+		echo $vars;
 		curl_setopt($ch,CURLOPT_POST, true);
 		curl_setopt($ch,CURLOPT_POSTFIELDS,$vars);
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);

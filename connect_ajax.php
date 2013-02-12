@@ -1,6 +1,7 @@
 <?php 
 session_start();
-
+define("SITE_ROOT", "http://www.achetervehicule.com/");
+define("API_ROOT", "http://api.achetervehicule.com/");
 connect();
 
 function connect() {

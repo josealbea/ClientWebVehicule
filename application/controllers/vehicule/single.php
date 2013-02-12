@@ -1,6 +1,6 @@
 <?php
 
-loadXMLFile("http://localhost/projetB3/?controller=vehicule&action=single&id=".$_GET['id']);
+loadXMLFile(API_ROOT."?controller=vehicule&action=single&id=".$_GET['id']);
 
 function loadXMLFile($url) 
 {

@@ -1,6 +1,6 @@
 <?php
 
-loadXMLFile("http://localhost/projetB3/?controller=vehicule&action=index&type=3");
+loadXMLFile(API_ROOT."?controller=vehicule&action=index&type=3");
 
 function loadXMLFile($url) 
 {
@@ -16,4 +16,3 @@ function loadXMLFile($url)
 
 	return $vehicules;
 }
-
