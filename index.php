@@ -133,9 +133,9 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 					<td><input type="text" name="departement" id="dep" maxlength="5" placeholder="Ex : 75016" /></td>
 				</tr>
 				<tr>
-					<td class="choix_vehicule_td"><label for="type">"Type de véhicule :</label></td>
+					<td class="choix_vehicule_td"><label for="type">Type de véhicule :</label></td>
 					<td><label for="boite_vitesse">Boite de vitesse :</label></td>
-					<td><label for="km">Kilométrage :</label></td>
+					<td><label for="km" id="km">Kilométrage :</label></td>
 					
 				</tr>
 				<tr>
