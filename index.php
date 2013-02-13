@@ -65,12 +65,14 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
     $(function() {
         $( "#slider-range" ).slider({
             range: true,
-            min: 500,
-            max: 100000,
-            step: 500,
-            values: [ 0, 100000 ],
+            min: 0,
+            max: 40000,
+            step: 100,
+            values: [ 0, 40000 ],
             slide: function( event, ui ) {
                 $( "#amount" ).html( ui.values[ 0 ] + "€ - " + ui.values[ 1 ] + "€" );
+                $("#prix_min").val(ui.values[0]);
+                $('#prix_max').val(ui.values[1]);
             }
         });
         $( "#amount" ).html($( "#slider-range" ).slider( "values", 0 ) +
@@ -166,8 +168,8 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 						<input type="text" id="km" name="km">
 					</td>
 					<td style="width: 180px;">
-						<input type="hidden" name="prix_min" id="amount" />
-						<input type="hidden" name="prix_max" id="prix_max" />
+						<input type="hidden" name="prix_min" id="prix_min" value="0" />
+						<input type="hidden" name="prix_max" id="prix_max" value="40000"/>
 						<input type="submit" value="Rechercher" style="margin-top: 0;" />
 					</td>
 				</tr>
