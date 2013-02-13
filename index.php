@@ -167,7 +167,7 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 		    		    </div>
 					</td>
 					<td>
-						<input type="text" id="km" name="km">
+						<input type="text" id="km" name="km" placeholder="ex: 100">
 					</td>
 					<td style="width: 180px;">
 						<input type="hidden" name="prix_min" id="prix_min" value="0" />
