@@ -89,9 +89,11 @@ include_once APPLICATION_PATH.'controllers/'.$controller.'/'.$action.'.php';
 			<div id="menu-user">
 				<?php if (empty($_SESSION['id_membre'])) { ?>
 			    <div class="btn-group">
+			    <img src="<?= PUBLIC_ROOT ?>img/login.png" />
 			    <a href="#signin" role="button" class="btn" data-toggle="modal">
 				    Connectez-vous
 			    </a>
+			    <img src="<?= PUBLIC_ROOT ?>img/inscription.png" />
 			    <a href="<?= SITE_ROOT;?>user/ajout" class="btn">
 				    Inscription
 			    </a>
