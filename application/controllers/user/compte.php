@@ -68,5 +68,11 @@ else {
     curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
     curl_setopt($ch, CURLOPT_CUSTOMREQUEST, "DELETE");
     $response = curl_exec($ch);
-    header('location: '.SITE_ROOT.'user/compte');
+    if ($response) {
+    	$del = 1;
+    }
+    else {
+    	$del = 0;
+    }
+    header('location: '.SITE_ROOT.'?controller=user&action=compte&deleted='.$del);
  }

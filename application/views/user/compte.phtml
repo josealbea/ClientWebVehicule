@@ -1,5 +1,11 @@
 <?php foreach ($compte as $unCompte) {?>
 <h1>Mon compte</h1>
+<?php if ($_GET['deleted'] == 1) {
+	echo "<div class='notif success'>Votre annonce a bien été supprimée</div>";
+}
+if ($_GET['deleted'] == 0) {
+	echo "<div class='notif error'>Une erreur est survenue lors de la suppression du compte</div>";
+} ?>
 <br />
 <div id="compte_left">
 <h2>Mes informations</h2>
@@ -39,7 +45,7 @@
 	<?php foreach ($liste as $uneliste) { ?>
 	<tbody>
 		<td><?= $uneliste->getAttribute("titre"); ?><td>
-		<td><a href="?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
+		<td><a href="/?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
 	</tbody>
 <?php } ?>
 </table>

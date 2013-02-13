@@ -1116,3 +1116,21 @@ input[type=submit] {
 #connect_box a {
 	display: inline-block;
 }
+
+
+/************** PAGINATION *************/
+
+#pagination {
+	margin-top: 15px;
+	clear:both;
+	background: #F0F0F0;
+	border: 1px solid #DADADA;
+	border-radius: 5px;
+	height: 25px;
+	line-height: 25px;
+	padding: 0 20px;
+}
+
+#pagination a {
+	color: #808080;
+}

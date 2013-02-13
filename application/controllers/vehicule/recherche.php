@@ -1,7 +1,7 @@
  <?php 
 if (!empty($_POST)) {
 	$formData = $_POST;
-	loadXMLFile(API_ROOT."?controller=vehicule&action=recherche&id_categorie=".$formData['vehicule']."&recherche=".$formData['recherche']."&annee=".$formData['annee']."&cp=".$formData['departement']."&energie=".$formData['energie']."&km=".$formData['km']."&boite_vitesse=".$formData['boite_vitesse']);
+	loadXMLFile(API_ROOT."?controller=vehicule&action=recherche&id_categorie=".$formData['vehicule']."&recherche=".$formData['recherche']."&annee=".$formData['annee']."&cp=".$formData['departement']."&energie=".$formData['energie']."&km=".$formData['km']."&boite_vitesse=".$formData['boite_vitesse']."&prix_min=".$formData['prix_min']."&prix_max=".$formData['prix_max']);
 }
 function loadXMLFile($url) 
 {

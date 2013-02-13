@@ -3,6 +3,8 @@
 ajoutAnnonce();
 
 function ajoutAnnonce() {
+	global $error;
+	$error = "";
 	$curl = curl_init($service_url);
 	if (!empty($_POST)) {
 		//var_dump($_FILES);exit;
@@ -10,7 +12,7 @@ function ajoutAnnonce() {
 		$fichier = $_FILES['photo'];
 		$photo = $fichier['tmp_name']; 
 		$nom_image = $fichier['name'];
-  var_dump(is_uploaded_file($photo));
+  		//var_dump(is_uploaded_file($photo));
 		$ext = strtolower(substr(strrchr($nom_image,'.'),1));
     	$ext_aut = array('jpg','jpeg','png','gif');
     	$valid = (!check_extension($ext,$ext_aut)) ? false : true;
@@ -41,7 +43,7 @@ function ajoutAnnonce() {
 		else{
 			$vehicule = "&cylindree=".$formData['cylindree'];
 		}
-		$vars = "titre=".$formData['titre']."&description=".$formData['description']."&prix=".$formData['prix']."&annee=".$formData['annee']."&km=".$formData['km']."&energie=".$formData['energie']."&id_categorie=".$formData['categorie']."&image=@".$photo."&nom_image=".$nom_image."&ext=".$ext."&id_membre=".$_SESSION['id_membre']."&accept=on".$vehicule;
+		$vars = "titre=".$formData['titre']."&description=".$formData['description']."&prix=".$formData['prix']."&annee=".$formData['annee']."&km=".$formData['km']."&energie=".$formData['energie']."&id_categorie=".$formData['categorie']."&id_membre=".$_SESSION['id_membre'].$vehicule;
 		$ch=curl_init(API_ROOT.'?controller=vehicule&action=index');
 		//echo $vars;
 		curl_setopt($ch,CURLOPT_POST, true);
@@ -49,9 +51,11 @@ function ajoutAnnonce() {
 		curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 		$ret = curl_exec($ch);
 		if (!$ret) {
+			$error = "<div class='notif error'>Une erreur est survenue, merci de réessayer.</div>";
 		    echo curl_error($ch);
 		}
 		else {
+			$error = "<div class='notif success'>L'annonce a été postée avec succès.</div>";
 			echo $ret;
 		}
 		curl_close($ch);
