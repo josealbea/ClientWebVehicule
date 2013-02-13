@@ -1,4 +1,8 @@
 <?php foreach ($compte as $unCompte) {?>
+<div id="erreurmailp"></div>
+<div id="erreurnomprenomp"></div>
+<div id="erreurcpp"></div>
+<div id="erreurtelp"></div>
 <h1>Mon compte</h1>
 <?php if ($_GET['deleted'] == 1) {
 	echo "<div class='notif success'>Votre annonce a bien été supprimée</div>";
@@ -25,10 +29,10 @@ if ($_GET['deleted'] == 2) {
 <div id="compte_left_2">
 <h2>Mes informations</h2>
 <form action="" method="post" name="form3" id="form3" class="form3">
-	<p>Votre adresse mail : <br /><?= $unCompte->getAttribute("mail"); ?> </p>
-	<p>Votre nom et prénom : <br /><?= $unCompte->getAttribute("nom"); ?> </p>
-	<p>Votre code postal : <br /><?= $unCompte->getAttribute("code_postal"); ?> </p>
-	<p>Votre téléphone : <br />0<?= $unCompte->getAttribute("telephone"); ?> </p>
+	<p id="mailp">Votre adresse mail : <br /><?= $unCompte->getAttribute("mail"); ?> </p>
+	<p id="nomprenomp">Votre nom et prénom : <br /><?= $unCompte->getAttribute("nom"); ?> </p>
+	<p id="cpp">Votre code postal : <br /><?= $unCompte->getAttribute("code_postal"); ?> </p>
+	<p id="telp">Votre téléphone : <br />0<?= $unCompte->getAttribute("telephone"); ?> </p>
 	<a hre="#" id="edit_btn">Modifier</a>
 	</form>
 </div>
@@ -45,7 +49,7 @@ if ($_GET['deleted'] == 2) {
 	<?php foreach ($liste as $uneliste) { ?>
 	<tbody>
 		<td><?= $uneliste->getAttribute("titre"); ?><td>
-		<td><a class="delete" href="/?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
+		<td><a class="delete" href="/?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>"><img src="<?= PUBLIC_ROOT ?>img/trash.gif" /></a></td>
 	</tbody>
 <?php } ?>
 </table>
@@ -59,4 +63,134 @@ $('#edit_btn').click(function() {
 	$('#compte_left_2').hide();
 	$('#compte_left').show();
 });
+
+function surligne(champ, erreur)
+{
+   if(erreur)
+      champ.style.borderColor = "#df8f90";
+   else
+      champ.style.borderColor = "";
+}
+$(function(){ 
+   $('#form3')
+      .bind('submit',function(event) {
+      return verifSubmitco(form3);
+   });
+    $('#mailp')
+      .bind('blur',function(event) {
+      verifPMail();
+     });
+    $('#nomprenomp')
+      .bind('blur',function(event) {
+      verifPnomprenom();
+     });
+    $('#cpp')
+      .bind('blur',function(event) {
+      verifPCp();
+     });
+     $('#telp')
+      .bind('blur',function(event) {
+      verifPTel();
+     });
+});
+
+
+function verifPMail()
+{
+   var champ = document.getElementById("mailp");
+   var regMailExpression = /^[a-zA-Z0-9._-]+@[a-z0-9._-]{2,}\.[a-z]{2,4}$/;
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurmailp").innerHTML="<div class='notif error'>Le mail est obligatoire</div>";
+	  return false;
+   }
+   else if(!regMailExpression.test(champ.value)) {
+   	  surligne(champ,true);
+   	  document.getElementById("erreurmailp").innerHTML="<div class='notif error'>L'adresse mail est invalide</div>";
+   	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurmailp").innerHTML="";
+      return true;
+   }
+}
+
+function verifPnomprenom()
+{
+   var champ = document.getElementById("nomprenomp");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurnomprenomp").innerHTML="<div class='notif error'>Le nom est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurnomprenomp").innerHTML="";
+      return true;
+   }
+}
+
+
+function verifPCp()
+{
+   var champ = document.getElementById("cpp");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurcpp").innerHTML="<div class='notif error'>Le code postal est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurcpp").innerHTML="";
+      return true;
+   }
+}
+
+function verifPTel()
+{
+   var champ = document.getElementById("telp");
+
+   if(champ.value.length < 1)
+   {
+    surligne(champ, true);
+	  document.getElementById("erreurtelp").innerHTML="<div class='notif error'>Le message est obligatoire</div>";
+	  return false;
+   }
+   else
+   {
+      surligne(champ, false);
+      document.getElementById("erreurtelp").innerHTML="";
+      return true;
+   }
+}
+
+
+
+
+function verifSubmitco(f) 
+{
+   var mailpOK = verifPMail();
+   var nomprenompOK = verifPnomprenom();
+   var cppOk = verifPCp();
+   var telpOk = verifPTel();
+   
+   if(mailpOK && nomprenompOK && cppOk && telpOk) {
+      return true;
+    }
+   else
+   {
+      alert("Veuillez remplir correctement tous les champs");
+      return false;
+   }
+}
 </script>

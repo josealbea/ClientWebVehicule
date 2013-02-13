@@ -937,6 +937,7 @@ input#connexion[type="submit"], #inscription[type="submit"]{
 }
 
 td {
+	border-bottom: 1px solid #ECECEC;
 	text-align: left;
 	margin-right: 30px;
 	width: 210px;
