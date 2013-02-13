@@ -6,6 +6,7 @@ if (!empty($_POST)) {
 function loadXMLFile($url) 
 {
 	global $vehicules;
+	global $error;
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
@@ -14,6 +15,9 @@ function loadXMLFile($url)
 	$annonces = new DOMDocument();
 	$annonces->loadXML($result);
 	$vehicules=$annonces->getElementsByTagName("vehicule");
+	if (!$result) {
+		$error = "<div class='notif error'>Désolé, mais aucune annonce ne correspond à vos critères</div>";
+	}
 
 	return $vehicules;
 }

@@ -3,7 +3,7 @@
 <?php if ($_GET['deleted'] == 1) {
 	echo "<div class='notif success'>Votre annonce a bien été supprimée</div>";
 }
-if ($_GET['deleted'] == 0) {
+if ($_GET['deleted'] == 2) {
 	echo "<div class='notif error'>Une erreur est survenue lors de la suppression du compte</div>";
 } ?>
 <br />
@@ -25,10 +25,10 @@ if ($_GET['deleted'] == 0) {
 <div id="compte_left_2">
 <h2>Mes informations</h2>
 <form action="" method="post" name="form3" id="form3" class="form3">
-	<p>Votre adresse mail :<?= $unCompte->getAttribute("mail"); ?> </p>
-	<p>Votre nom et prénom :<?= $unCompte->getAttribute("nom"); ?> </p>
-	<p>Votre code postal :<?= $unCompte->getAttribute("code_postal"); ?> </p>
-	<p>Votre téléphone :<?= $unCompte->getAttribute("telephone"); ?> </p>
+	<p>Votre adresse mail : <br /><?= $unCompte->getAttribute("mail"); ?> </p>
+	<p>Votre nom et prénom : <br /><?= $unCompte->getAttribute("nom"); ?> </p>
+	<p>Votre code postal : <br /><?= $unCompte->getAttribute("code_postal"); ?> </p>
+	<p>Votre téléphone : <br />0<?= $unCompte->getAttribute("telephone"); ?> </p>
 	<a hre="#" id="edit_btn">Modifier</a>
 	</form>
 </div>
@@ -37,15 +37,15 @@ if ($_GET['deleted'] == 0) {
 <h2>Mes annonces</h2>
 
 
-<table>
+<table id="list_annonce">
 	<thead>
-		<td>Titre<td>
+		<td>Titre de l'annonce<td>
 		<td>Action</td>
 	</thead>
 	<?php foreach ($liste as $uneliste) { ?>
 	<tbody>
 		<td><?= $uneliste->getAttribute("titre"); ?><td>
-		<td><a href="/?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
+		<td><a class="delete" href="/?controller=user&action=compte&delete=1&id=<?= $uneliste->getAttribute("id"); ?>">Supprimer</a></td>
 	</tbody>
 <?php } ?>
 </table>

@@ -72,7 +72,7 @@ else {
     	$del = 1;
     }
     else {
-    	$del = 0;
+    	$del = 2;
     }
     header('location: '.SITE_ROOT.'?controller=user&action=compte&deleted='.$del);
  }
