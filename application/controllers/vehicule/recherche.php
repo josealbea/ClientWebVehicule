@@ -7,16 +7,16 @@ function loadXMLFile($url)
 {
 	global $vehicules;
 	global $error;
+	$error = "";
 	$ch = curl_init();
 	curl_setopt($ch, CURLOPT_URL, $url);
 	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$result = utf8_decode(curl_exec($ch));
-
-	if (!$result) {
-		$error = "<div class='notif error'>Désolé, mais aucune annonce ne correspond à vos critères</div>";
-	} else {	
+	$result = utf8_decode(curl_exec($ch));	
 		$annonces = new DOMDocument();
-		$annonces->loadXML($result);
+		$load = $annonces->loadXML($result);
+	if (!$load) {
+		$error = "<div class='notif error'>Désolé, mais aucune annonce ne correspond à vos critères</div>";
+	} else {
 		$vehicules=$annonces->getElementsByTagName("vehicule");
 	}
 	curl_close($ch);

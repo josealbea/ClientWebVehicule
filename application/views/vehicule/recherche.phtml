@@ -1,8 +1,7 @@
 <div id="gauche">
 	<h1>Résultat de la recherche : <?php echo $_GET['recherche']; ?></h1>
-	<?php if (!empty($error)) {
+	<?php
 		echo $error;
-	} else {
 	foreach($vehicules as $vehicule) {
 	?>
 	<div class="annonce">
@@ -20,7 +19,7 @@
 			</div>
 		</div>
 	</div>
-	<?php } } ?>
+	<?php }  ?>
 </div>
 <div id="droite">
 	<h1>publicité</h1>
