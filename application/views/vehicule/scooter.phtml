@@ -1,5 +1,9 @@
 <div id="gauche">
 	<h1>Les derniers scooters postées</h1>
+		<?php 
+	foreach($total as $tot) {
+		$nbvehicule = $tot->getAttribute("nb_vehicules");
+	} ?>
 	<?php foreach($vehicules as $vehicule) {
 	?>
 	<div class="annonce">
@@ -17,6 +21,27 @@
 			</div>
 		</div>
 	</div>
+	<?php } ?>
+	<?php
+	if (empty($_GET['page'])) {
+		$_GET['page'] = 1;
+	}
+
+	 if ($nbvehicule > 10) { ?>
+		<div id="pagination">
+			<ul>
+			<?php 
+			$nb_pages = ceil($nbvehicule/10);
+			for ($i=1; $i<=$nb_pages; $i++) { 
+				if ($i == $_GET['page']) { ?>
+					<li class="active"><?php echo $i; ?></li>
+				<?php } else {
+			?>
+
+			<a href="../?controller=vehicule&action=scooter&page=<?= $i; ?>"><li><?php echo $i; ?></li></a>
+			<?php } } ?>
+			</ul>
+		</div>
 	<?php } ?>
 </div>
 <div id="droite">

@@ -198,8 +198,7 @@ a#search_button, a:visited#search_button, a:link#search_button{
 	position:absolute;
 	border-radius: 0 0 5px 5px;
 	background: #EDEDED;
-	width: 78%;
-	max-width: 1065px;
+	width: 985px;
 	padding: 2% 1% 0;
 	z-index:1;
 	border-left: 1px solid grey;
@@ -1130,13 +1129,37 @@ input[type=submit] {
 	background: #F0F0F0;
 	border: 1px solid #DADADA;
 	border-radius: 5px;
-	height: 25px;
-	line-height: 25px;
-	padding: 0 20px;
+	height: 30px;
+	line-height: 30px;
+	padding: 0 5px;
+	color: #000000;
 }
 
 #pagination a {
 	color: #808080;
+}
+
+#pagination ul {
+	list-style-type: none;
+	padding: 0;
+	margin: 0;
+}
+
+#pagination ul li {
+	color: #808080;
+	float: left;
+	margin: 4px 2px;
+	height: 20px;
+	line-height: 20px;
+	background: #FEFEFE;
+	border-radius: 3px;
+	border: 1px solid #DADADA;
+	padding: 0 3px;
+}
+
+#pagination ul li.active {
+	border: 1px solid #808080;
+	color: #000000;
 }
 
 a.delete {

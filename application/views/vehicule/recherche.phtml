@@ -9,10 +9,10 @@
 			<img src="http://193.164.197.60/images/487/487312012066821.jpg" alt="">
 		</div>
 		<div class="description-annonce">
-			<h2><a href="<?= SITE_ROOT; ?>vehicule/<?= $vehicule->getAttribute("id")."-".strtolower(str_replace(" ", "-", $vehicule->getAttribute("titre"))); ?>"><?= $vehicule->getAttribute("titre"); ?></a></h2>
-			<p><?= $vehicule->getAttribute("description"); ?></p>
+			<h2><a href="<?= SITE_ROOT; ?>vehicule/<?= $vehicule->getAttribute("id")."-".strtolower(str_replace(" ", "-", $vehicule->getAttribute("titre"))); ?>"><?= utf8_decode($vehicule->getAttribute("titre")); ?></a></h2>
+			<p><?= utf8_decode($vehicule->getAttribute("description")); ?></p>
 			<div class="detail-annonce">
-				<p><?= $vehicule->firstChild->getAttribute("ville"); ?> (<?= substr($vehicule->firstChild->getAttribute("code_postal"),0,2); ?>) - <?= $vehicule->getAttribute("annee"); ?> - <?= $vehicule->getAttribute("energie"); ?> - <?= $vehicule->getAttribute("km"); ?>Km</p>
+				<p><?= substr($vehicule->firstChild->getAttribute("code_postal"),0,2); ?> - <?= $vehicule->getAttribute("annee"); ?> - <?= $vehicule->getAttribute("energie"); ?> - <?= $vehicule->getAttribute("km"); ?>Km</p>
 				<div class="liste-prix">
 					Prix : <span><?= $vehicule->getAttribute("prix"); ?> €</span>
 				</div>

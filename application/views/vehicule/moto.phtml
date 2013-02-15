@@ -1,5 +1,9 @@
 <div id="gauche">
 	<h1>Les dernières motos postées</h1>
+		<?php 
+	foreach($total as $tot) {
+		$nbvehicule = $tot->getAttribute("nb_vehicules");
+	} ?>
 	<?php foreach($vehicules as $vehicule) {
 	?>
 	<div class="annonce">
@@ -7,16 +11,37 @@
 			<img src="http://193.164.197.60/images/487/487312010138167.jpg" alt="">
 		</div>
 		<div class="description-annonce">
-			<h2><a href="<?= SITE_ROOT; ?>vehicule/<?= $vehicule->getAttribute("id")."-".strtolower(str_replace(" ", "-", $vehicule->getAttribute("titre"))); ?>"><?= $vehicule->getAttribute("titre"); ?></a></h2>
-			<p><?= $vehicule->getAttribute("description"); ?></p>
+			<h2><a href="<?= SITE_ROOT; ?>vehicule/<?= $vehicule->getAttribute("id")."-".strtolower(str_replace(" ", "-", $vehicule->getAttribute("titre"))); ?>"><?= stripslashes(utf8_decode($vehicule->getAttribute("titre"))); ?></a></h2>
+			<p><?= utf8_decode($vehicule->getAttribute("description")); ?></p>
 			<div class="detail-annonce">
-				<p><?= $vehicule->firstChild->getAttribute("ville"); ?> (<?= substr($vehicule->firstChild->getAttribute("code_postal"),0,2); ?>) - <?= $vehicule->getAttribute("annee"); ?> - <?= $vehicule->getAttribute("energie"); ?> - <?= $vehicule->getAttribute("km"); ?>Km</p>
+				<p><?= substr($vehicule->firstChild->getAttribute("code_postal"),0,2); ?> - <?= $vehicule->getAttribute("annee"); ?> - <?= $vehicule->getAttribute("energie"); ?> - <?= $vehicule->getAttribute("km"); ?>Km</p>
 				<div class="liste-prix">
 					Prix : <span><?= $vehicule->getAttribute("prix"); ?> €</span>
 				</div>
 			</div>
 		</div>
 	</div>
+	<?php } ?>
+	<?php
+	if (empty($_GET['page'])) {
+		$_GET['page'] = 1;
+	}
+
+	 if ($nbvehicule > 10) { ?>
+		<div id="pagination">
+			<ul>
+			<?php 
+			$nb_pages = ceil($nbvehicule/10);
+			for ($i=1; $i<=$nb_pages; $i++) { 
+				if ($i == $_GET['page']) { ?>
+					<li class="active"><?php echo $i; ?></li>
+				<?php } else {
+			?>
+
+			<a href="../?controller=vehicule&action=moto&page=<?= $i; ?>"><li><?php echo $i; ?></li></a>
+			<?php } } ?>
+			</ul>
+		</div>
 	<?php } ?>
 </div>
 <div id="droite">
